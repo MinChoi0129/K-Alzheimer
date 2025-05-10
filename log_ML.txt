@@ -1,0 +1,77 @@
+
+📌 RandomForest 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       1.00      0.52      0.68       454
+       정상(1)       0.79      0.88      0.83      1165
+     경증치매(2)       0.80      0.86      0.83      1179
+
+    accuracy                           0.81      2798
+   macro avg       0.86      0.75      0.78      2798
+weighted avg       0.83      0.81      0.81      2798
+
+📌 SVM (RBF Kernel) 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       0.83      0.15      0.25       454
+       정상(1)       0.66      0.74      0.70      1165
+     경증치매(2)       0.64      0.77      0.69      1179
+
+    accuracy                           0.65      2798
+   macro avg       0.71      0.55      0.55      2798
+weighted avg       0.68      0.65      0.62      2798
+
+📌 LogisticRegression 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       0.35      0.02      0.05       454
+       정상(1)       0.58      0.61      0.59      1165
+     경증치매(2)       0.54      0.71      0.62      1179
+
+    accuracy                           0.56      2798
+   macro avg       0.49      0.45      0.42      2798
+weighted avg       0.53      0.56      0.51      2798
+
+📌 RandomForest 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       1.00      0.52      0.68       454
+       정상(1)       0.79      0.88      0.83      1165
+     경증치매(2)       0.80      0.86      0.83      1179
+
+    accuracy                           0.81      2798
+   macro avg       0.86      0.75      0.78      2798
+weighted avg       0.83      0.81      0.81      2798
+
+📌 SVM (RBF Kernel) 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       0.83      0.15      0.25       454
+       정상(1)       0.66      0.74      0.70      1165
+     경증치매(2)       0.64      0.77      0.69      1179
+
+    accuracy                           0.65      2798
+   macro avg       0.71      0.55      0.55      2798
+weighted avg       0.68      0.65      0.62      2798
+
+📌 LogisticRegression 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       0.35      0.02      0.05       454
+       정상(1)       0.58      0.61      0.59      1165
+     경증치매(2)       0.54      0.71      0.62      1179
+
+    accuracy                           0.56      2798
+   macro avg       0.49      0.45      0.42      2798
+weighted avg       0.53      0.56      0.51      2798
+
+📌 SGDClassifier 성능:
+              precision    recall  f1-score   support
+
+       치매(0)       0.18      0.30      0.23       454
+       정상(1)       0.51      0.45      0.48      1165
+     경증치매(2)       0.49      0.42      0.45      1179
+
+    accuracy                           0.41      2798
+   macro avg       0.39      0.39      0.39      2798
+weighted avg       0.45      0.41      0.43      2798
