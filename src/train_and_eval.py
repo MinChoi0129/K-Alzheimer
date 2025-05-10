@@ -73,7 +73,7 @@ def train_and_eval(model, train_loader, test_loader, config, device):
                 print("Best test f1 model saved.")
         else:
             os.makedirs("best_models(transfer)", exist_ok=True)
-            torch.save(model.state_dict(), "best_models(transfer)/best_transfer_model.pth")
+            # torch.save(model.state_dict(), "best_models(transfer)/best_transfer_model.pth")
 
     # 🎯 최종 테스트 평가
     print("\nFinal evaluation on test set:")
