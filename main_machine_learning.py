@@ -11,10 +11,11 @@ from config import config
 from src.dataloader import MRIDataset
 from src.transform import transform_volume
 
+
 def batch_indices(arr, batch_size):
     """인덱스 배열을 배치 단위로 분할"""
     for i in range(0, len(arr), batch_size):
-        yield arr[i:i + batch_size]
+        yield arr[i : i + batch_size]
 
 
 def load_batch(dataset, idxs):
@@ -24,13 +25,13 @@ def load_batch(dataset, idxs):
     batch_size = len(idxs)
     # 첫 볼륨 크기로 초기화
     vol0, _ = dataset[idxs[0]]
-    vol_np0 = vol0.numpy() if hasattr(vol0, 'numpy') else vol0
+    vol_np0 = vol0.numpy() if hasattr(vol0, "numpy") else vol0
     flat_size = int(np.prod(vol_np0.shape))
     X = np.zeros((batch_size, flat_size), dtype=np.float32)
     y = np.zeros(batch_size, dtype=int)
     for j, idx in enumerate(idxs):
         vol, label = dataset[idx]
-        vol_np = vol.numpy() if hasattr(vol, 'numpy') else vol
+        vol_np = vol.numpy() if hasattr(vol, "numpy") else vol
         X[j] = vol_np.astype(np.float32).flatten()
         y[j] = int(label)
     return X, y
@@ -38,7 +39,7 @@ def load_batch(dataset, idxs):
 
 def main():
     # 데이터셋 로드
-    dataset_dir = config.root_dir_A if config.mode == 'A' else config.root_dir_B
+    dataset_dir = config.root_dir_A if config.mode == "A" else config.root_dir_B
     dataset = MRIDataset(dataset_dir, config, transform=transform_volume)
     N = len(dataset)
 
@@ -60,32 +61,32 @@ def main():
 
     # PCA 변환 결과를 메모리 내 ndarray로 생성
     X_train = np.zeros((n_train, n_components), dtype=np.float32)
-    X_test  = np.zeros((n_test,  n_components), dtype=np.float32)
+    X_test = np.zeros((n_test, n_components), dtype=np.float32)
     y_train = labels[train_idx]
-    y_test  = labels[test_idx]
+    y_test = labels[test_idx]
 
     print("🔄 PCA 변환 중...")
     # train 변환
     for i, batch_idx in enumerate(tqdm(batch_indices(train_idx, batch_size=100))):
         X_batch, _ = load_batch(dataset, batch_idx)
-        X_train[i*100:(i*100+len(batch_idx))] = ipca.transform(X_batch)
+        X_train[i * 100 : (i * 100 + len(batch_idx))] = ipca.transform(X_batch)
     # test 변환
     for i, batch_idx in enumerate(tqdm(batch_indices(test_idx, batch_size=100))):
         X_batch, _ = load_batch(dataset, batch_idx)
-        X_test[i*100:(i*100+len(batch_idx))] = ipca.transform(X_batch)
+        X_test[i * 100 : (i * 100 + len(batch_idx))] = ipca.transform(X_batch)
 
     # 모델 정의
     models = {
         "RandomForest": RandomForestClassifier(n_estimators=100, random_state=42),
-        "SVM (RBF Kernel)": SVC(kernel='rbf', probability=True, random_state=42),
+        "SVM (RBF Kernel)": SVC(kernel="rbf", probability=True, random_state=42),
         "LogisticRegression": LogisticRegression(max_iter=1000, random_state=42),
-        "SGDClassifier": SGDClassifier(loss='log_loss', max_iter=1000, random_state=42)
+        "SGDClassifier": SGDClassifier(loss="log_loss", max_iter=1000, random_state=42),
     }
 
     # 학습 및 평가
     for name, model in models.items():
         print(f"🧠 {name} 학습 및 평가 중...")
-        if hasattr(model, 'partial_fit') and name == "SGDClassifier":
+        if hasattr(model, "partial_fit") and name == "SGDClassifier":
             model.partial_fit(X_train, y_train, classes=np.unique(y_train))
         else:
             model.fit(X_train, y_train)
@@ -94,6 +95,7 @@ def main():
         print(f"\n📌 {name} 성능:\n{report}")
         with open("log_ML.txt", mode="a+") as f:
             f.write(f"\n📌 {name} 성능:\n{report}")
+
 
 if __name__ == "__main__":
     main()
