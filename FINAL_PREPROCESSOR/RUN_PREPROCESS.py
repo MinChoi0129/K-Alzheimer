@@ -1,5 +1,5 @@
 import os
-import concurrent
+import concurrent.futures
 import pydicom
 import numpy as np
 from scipy.ndimage import zoom
@@ -11,15 +11,22 @@ MODE = "ADNI"
 ALL_DATASET_PATH, CSV_PATH, NPZS_PATH = None, None, None
 
 if MODE == "ADNI":
-    ALL_DATASET_PATH = r"D:\ALL_DATASETS\medical\ADNI\ADNI_DATASET"
-    CSV_PATH = r"D:\ALL_DATASETS\medical\ADNI\ADNI_FULL.csv"
-    NPZS_PATH = r"C:\Working\LAB\2025\K_Alzheimer\download\npz_patients"
+    # ALL_DATASET_PATH = r"D:\ALL_DATASETS\medical\ADNI\ADNI_DATASET"
+    # CSV_PATH = r"D:\ALL_DATASETS\medical\ADNI\ADNI_FULL.csv"
+    # NPZS_PATH = r"C:\Working\LAB\2025\K_Alzheimer\download\npz_patients"
+
+    # test-samples
+    ALL_DATASET_PATH = r"/home/k_alz/k_dataset_raw/sample_k_alz"
+    CSV_PATH = r"/home/k_alz/k_dataset_raw/ADNI_FULL.csv"
+    NPZS_PATH = r"/home/k_alz/k_dataset"
+
 elif MODE == "K-Alzheimer":
-    ALL_DATASET_PATH = r"/home/ubuntu/path_to_dataset"
-    CSV_PATH = r"/home/ubuntu/path_to_csv"
-    NPZS_PATH = r"/home/ubuntu/path_to_save_npzs"
+    ALL_DATASET_PATH = r"/home/k_alz/k_dataset_raw"
+    CSV_PATH = r"/home/k_alz/k_dataset_raw/k_alz_csv.csv"
+    NPZS_PATH = r"/home/k_alz/k_dataset"
 else:
     raise ValueError("Invalid mode. Please choose 'ADNI' or 'K-Alzheimer'.")
+
 
 class Resampler:
     def __init__(self, mode):
@@ -30,27 +37,27 @@ class Resampler:
             resampled_image = Resampler.resample_2d(input_data, before_spacing, after_spacing)
             if target_shape:
                 resampled_image = Resampler.center_crop_or_pad_2d(resampled_image, target_shape)
-            
+
             return resampled_image
 
         elif self.mode == "3D":
             resampled_volume = Resampler.resample_3d(input_data, before_spacing, after_spacing)
             if target_shape:
                 resampled_volume = Resampler.center_crop_or_pad_3d(resampled_volume, target_shape)
-            
+
             return resampled_volume
-    
+
     @staticmethod
     def resample_2d(image, before_spacing, after_spacing):
         zoom_factors = [
-            before_spacing[0] / after_spacing[0], 
-            before_spacing[1] / after_spacing[1], 
+            before_spacing[0] / after_spacing[0],
+            before_spacing[1] / after_spacing[1],
         ]
 
         return zoom(image, zoom=zoom_factors, order=1)
-    
+
     @staticmethod
-    def resample_3d(volume, before_spacing, after_spacing):       
+    def resample_3d(volume, before_spacing, after_spacing):
         zoom_factors = [
             before_spacing[0] / after_spacing[0],
             before_spacing[1] / after_spacing[1],
@@ -58,7 +65,7 @@ class Resampler:
         ]
 
         return zoom(volume, zoom=zoom_factors, order=1)
-    
+
     @staticmethod
     def center_crop_or_pad_2d(image, target_shape):
         x, y = image.shape
@@ -86,13 +93,10 @@ class Resampler:
         x_start = (tx - x_pad) // 2 if x_pad < tx else 0
         y_start = (ty - y_pad) // 2 if y_pad < ty else 0
 
-        cropped_or_padded[
-            x_start : x_start + x_pad,
-            y_start : y_start + y_pad
-        ] = image
+        cropped_or_padded[x_start : x_start + x_pad, y_start : y_start + y_pad] = image
 
         return cropped_or_padded
-    
+
     @staticmethod
     def center_crop_or_pad_3d(volume, target_shape):
         x, y, z = volume.shape
@@ -135,7 +139,8 @@ class Resampler:
         ] = volume
 
         return cropped_or_padded
-    
+
+
 class DicomOneScanHandler:
     def __init__(self, dcms_parent_path):
         all_dcms = []
@@ -155,18 +160,19 @@ class DicomOneScanHandler:
             volume.append(slice_)
 
             if i == 0:
-                """ X, Y, Z 순의 Spacing을 담음(Z, X, Y 아님!!!)"""
+                """X, Y, Z 순의 Spacing을 담음(Z, X, Y 아님!!!)"""
                 try:
                     all_spacing = list(dcm.PixelSpacing) + [dcm.SliceThickness]
                 except:
                     """ADNI 에만 적용될 것으로 예상"""
+                    print("ADNI 전용 호출 코드")
                     try:
                         thickness = dcm[0x5200, 0x9230][0][0x0028, 0x9110][0][0x0028, 0x0030].value
                         pixel_spacing = dcm[0x5200, 0x9230][0][0x0028, 0x9110][0][0x0018, 0x0050].value
                         all_spacing = list(pixel_spacing) + [thickness]
                     except:
-                        all_spacing = list(thickness) + [pixel_spacing] # 자리가 바뀌어 잘못 기재된 데이터
-            
+                        all_spacing = list(thickness) + [pixel_spacing]  # 자리가 바뀌어 잘못 기재된 데이터
+
             if len(slice_.shape) == 3:
                 volume = np.array(slice_).transpose(1, 2, 0)
                 is_full_volume = True
@@ -189,17 +195,19 @@ class DicomOneScanHandler:
 
     def visualize_volume_as_video(self, personal_volume=None):
         import cv2
+
         target_volume = personal_volume if personal_volume is not None else self.volume
         try:
             for i in range(target_volume.shape[0]):
                 frame = target_volume[i]
                 cv2.imshow("brain", frame)
-                if cv2.waitKey(10) == ord('q'):
+                if cv2.waitKey(10) == ord("q"):
                     break
         except Exception as e:
             print(e)
         finally:
             cv2.destroyAllWindows()
+
 
 class Dicom2NumpyPreprocessor:
     def __init__(self, voxel_size, visualize=False, target_shape=None):
@@ -229,10 +237,21 @@ class Dicom2NumpyPreprocessor:
         voxel_size = self.voxel_size
         target_shape = self.target_shape
         visualize = self.visualize
-        
+        mode = MODE
+
         with concurrent.futures.ProcessPoolExecutor(max_workers=12) as executor:
             futures = {
-                executor.submit(Dicom2NumpyPreprocessor.process_scan, scan, npzs_path, resampler, voxel_size, target_shape, my_csv, visualize): scan
+                executor.submit(
+                    Dicom2NumpyPreprocessor.process_scan,
+                    scan,
+                    npzs_path,
+                    resampler,
+                    voxel_size,
+                    target_shape,
+                    my_csv,
+                    visualize,
+                    mode,
+                ): scan
                 for scan in scans
             }
 
@@ -250,7 +269,7 @@ class Dicom2NumpyPreprocessor:
         print("=== Processing Complete ===")
 
     @staticmethod
-    def process_scan(scan_path, npzs_path, resampler, voxel_size, target_shape, my_csv, visualize):
+    def process_scan(scan_path, npzs_path, resampler, voxel_size, target_shape, my_csv, visualize, mode):
         scan_id = scan_path.replace("\\", "/").split("/")[-1]
         dcm_handler = DicomOneScanHandler(dcms_parent_path=scan_path)
         volume = dcm_handler.volume
@@ -259,7 +278,7 @@ class Dicom2NumpyPreprocessor:
         new_volume_for_deep_learning = resampler.resample(volume, dcm_handler.spacing, voxel_size, target_shape)
 
         # 라벨 가져오기
-        label = Dicom2NumpyPreprocessor.get_MRI_class_from_scanId(my_csv, scan_id, mode="ADNI")
+        label = Dicom2NumpyPreprocessor.get_MRI_class_from_scanId(my_csv, scan_id, mode=mode)
 
         # 저장 경로 설정
         save_path = os.path.join(npzs_path, label, f"{scan_id}.npz")
@@ -289,7 +308,7 @@ class Dicom2NumpyPreprocessor:
         else:
             # import random
             # return random.choice(["CN", "MCI", "AD"])
-        
+
             matched = csv[csv["Image Data ID"] == scan_id]
             if matched.empty:
                 try_folder_name = "D" + scan_id[1:]
@@ -297,15 +316,21 @@ class Dicom2NumpyPreprocessor:
                 if matched.empty:
                     raise ValueError(f"Group not found for folder {scan_id}")
 
+            print(
+                matched["Image Data ID"].values[0],
+                matched["Sex"].values[0],
+                matched["Age"].values[0],
+                matched["Group"].values[0],
+            )
             group = matched["Group"].values[0]
             if group not in ["AD", "CN", "MCI"]:
                 raise ValueError(f"Invalid group '{group}' for folder {scan_id}")
-            
+
             return group
 
 
 if __name__ == "__main__":
-    my_csv = pd.read_csv(CSV_PATH    ) 
+    my_csv = pd.read_csv(CSV_PATH)
     preprocessor = Dicom2NumpyPreprocessor(voxel_size=(1.0, 1.0, 1.0), visualize=False, target_shape=(224, 224, 224))
 
     # for i, patient_path in enumerate(os.listdir(ALL_DATASET_PATH)):
