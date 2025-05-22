@@ -1,9 +1,10 @@
 import os
 import numpy as np
+import torch
 from torch.utils.data import Dataset, DataLoader
 from src.transform import transform_volume
 from sklearn.model_selection import StratifiedShuffleSplit
-from torch.utils.data import DataLoader, Subset
+from torch.utils.data import DataLoader, Subset, random_split
 import numpy as np
 
 class MRIDataset(Dataset):
@@ -53,76 +54,73 @@ def get_dataloaders(config):
         print("디버깅 용으로 데이터셋을 감소합니다.")
         total = len(ds)
         subset_size = int(total * 0.3)
-        rng = np.random.RandomState(42)
-        selected_idxs = rng.permutation(total)[:subset_size]
-        ds = Subset(ds, selected_idxs)
-
-    N    = len(ds)
-    idxs = np.arange(N)
-
+        ds, _ = random_split(ds, [subset_size, total - subset_size])
+    
     # 2) A 모드: 그대로
     if config.mode == 'A':
-        rng  = np.random.RandomState(42)
-        perm = rng.permutation(idxs)
-        split = int(0.7 * N)
-        train_idx, test_idx = perm[:split], perm[split:]
+        total_len = len(ds)
+        train_len = int(0.7 * total_len)
+        test_len = total_len - train_len
+
+        train_set, test_set = random_split(ds, [train_len, test_len])
 
         train_loader = DataLoader(
-            Subset(ds, train_idx),
+           train_set,
             batch_size  = config.batch_size,
             shuffle     = True,
             num_workers = config.num_workers,
             pin_memory  = True
         )
         test_loader  = DataLoader(
-            Subset(ds, test_idx),
+            test_set,
             batch_size  = config.batch_size,
             shuffle     = False,
             num_workers = config.num_workers,
             pin_memory  = True
         )
+
         return train_loader, test_loader
 
-    # 3) B 모드 ────────────────────────────────────────────────
-    rng  = np.random.RandomState(42)
-    perm = rng.permutation(idxs)
+    else:
+        total_len = len(ds)
+        test_len = int(0.7 * total_len)
+        pool_len = total_len - test_len
 
-    test_size       = int(0.80 * N)          # 80 % 고정
-    test_idx        = perm[:test_size]
-    train_pool_idx  = perm[test_size:]       # 20 % 학습 후보
-    M               = len(train_pool_idx)
+        test_set, pool_set = random_split(ds, [test_len, pool_len])
+        
 
-    # 고정 테스트 로더
-    test_loader_fixed = DataLoader(
-        Subset(ds, test_idx),
-        batch_size  = config.batch_size,
-        shuffle     = False,
-        num_workers = config.num_workers,
-        pin_memory  = True
-    )
+        # 고정 테스트 로더
+        test_loader_fixed = DataLoader(
+            test_set,
+            batch_size  = config.batch_size,
+            shuffle     = False,
+            num_workers = config.num_workers,
+            pin_memory  = True
+        )
 
-    # 후보 중에서 사용할 학습 비율
-    train_fracs = [0.0, 0.025, 0.05, 0.1, 0.15, 0.2, 0.25, 0.5, 0.75, 1.0]
-    train_loaders, test_loaders = [], []
+        # 후보 중에서 사용할 학습 비율
+        train_fracs = [1.0, 0.75, 0.5, 0.25, 0.2, 0.15, 0.1, 0.05, 0.025, 0.0125, 0.0125 / 2, 0.0]
+        train_loaders, test_loaders = [], []
 
-    for i, frac in enumerate(train_fracs):
-        rng_i  = np.random.RandomState(42 + i)
-        perm_i = rng_i.permutation(train_pool_idx)
-        train_size = int(frac * M)
+        pool_indices = torch.randperm(pool_len).tolist()
 
-        if train_size == 0:
-            train_loaders.append(None)
-        else:
-            t_idx = perm_i[:train_size]
-            train_loaders.append(DataLoader(
-                Subset(ds, t_idx),
-                batch_size  = config.batch_size,
-                shuffle     = True,
-                num_workers = config.num_workers,
-                pin_memory  = True
-            ))
+        for i, frac in enumerate(train_fracs):
+            train_size = int(frac * pool_len)
 
-        # 동일한 테스트 로더를 7번 넣어 둡니다.
-        test_loaders.append(test_loader_fixed)
+            if train_size == 0:
+                train_loaders.append(None)
+            else:
+                sel_idx = pool_indices[:train_size]
+                train_subset = Subset(pool_set, sel_idx)
+                train_loaders.append(DataLoader(
+                    train_subset,
+                    batch_size  = config.batch_size,
+                    shuffle     = True,
+                    num_workers = config.num_workers,
+                    pin_memory  = True
+                ))
 
-    return (train_loaders, train_fracs), test_loaders
+            # 동일한 테스트 로더를 7번 넣어 둡니다.
+            test_loaders.append(test_loader_fixed)
+
+        return (train_loaders, train_fracs), test_loaders

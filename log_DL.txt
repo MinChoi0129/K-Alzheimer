@@ -394,3 +394,894 @@ Classification Report per class:
 AD: {'precision': 1.0, 'recall': 0.9981515711645101, 'f1-score': 0.9990749306197965, 'support': 541.0}
 MCI: {'precision': 1.0, 'recall': 1.0, 'f1-score': 1.0, 'support': 1411.0}
 CN: {'precision': 0.999288256227758, 'recall': 1.0, 'f1-score': 0.9996440014239942, 'support': 1404.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8974, Acc: 0.5826, F1: 0.5420, Precision: 0.5729, Recall: 0.5826
+ROC AUC: 0.7307
+
+Classification Report per class:
+AD: {'precision': 0.5166666666666667, 'recall': 0.046898638426626324, 'f1-score': 0.08599167822468794, 'support': 661.0}
+MCI: {'precision': 0.5842945874001775, 'recall': 0.761711972238288, 'f1-score': 0.6613105699221693, 'support': 1729.0}
+CN: {'precision': 0.582668793195109, 'recall': 0.607202216066482, 'f1-score': 0.5946825827455235, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8185, Acc: 0.6174, F1: 0.6092, Precision: 0.6147, Recall: 0.6174
+ROC AUC: 0.7800
+
+Classification Report per class:
+AD: {'precision': 0.5403225806451613, 'recall': 0.3040847201210287, 'f1-score': 0.3891577928363988, 'support': 661.0}
+MCI: {'precision': 0.6744457409568262, 'recall': 0.6685945633314054, 'f1-score': 0.6715074063316875, 'support': 1729.0}
+CN: {'precision': 0.5846372688477952, 'recall': 0.6831024930747922, 'f1-score': 0.6300459887583035, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9565, Acc: 0.5657, F1: 0.5163, Precision: 0.6246, Recall: 0.5657
+ROC AUC: 0.7842
+
+Classification Report per class:
+AD: {'precision': 0.6, 'recall': 0.02723146747352496, 'f1-score': 0.05209840810419682, 'support': 661.0}
+MCI: {'precision': 0.7636186770428015, 'recall': 0.45401966454598036, 'f1-score': 0.5694595574900254, 'support': 1729.0}
+CN: {'precision': 0.5004781638508129, 'recall': 0.8698060941828255, 'f1-score': 0.6353702954269528, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.7857, Acc: 0.6632, F1: 0.6305, Precision: 0.6931, Recall: 0.6632
+ROC AUC: 0.8453
+
+Classification Report per class:
+AD: {'precision': 0.8102189781021898, 'recall': 0.16792738275340394, 'f1-score': 0.27819548872180455, 'support': 661.0}
+MCI: {'precision': 0.6243654822335025, 'recall': 0.924812030075188, 'f1-score': 0.7454545454545455, 'support': 1729.0}
+CN: {'precision': 0.7160988643954576, 'recall': 0.5939058171745152, 'f1-score': 0.6493034524530588, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 1.7486, Acc: 0.4815, F1: 0.3644, Precision: 0.6055, Recall: 0.4815
+ROC AUC: 0.7774
+
+Classification Report per class:
+AD: {'precision': 0.4696132596685083, 'recall': 0.3857791225416036, 'f1-score': 0.42358803986710963, 'support': 661.0}
+MCI: {'precision': 0.7910447761194029, 'recall': 0.030653556969346442, 'f1-score': 0.05902004454342984, 'support': 1729.0}
+CN: {'precision': 0.4775453277545328, 'recall': 0.9484764542936288, 'f1-score': 0.6352504638218924, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.6211, Acc: 0.7480, F1: 0.7429, Precision: 0.7550, Recall: 0.7480
+ROC AUC: 0.8889
+
+Classification Report per class:
+AD: {'precision': 0.7752525252525253, 'recall': 0.46444780635400906, 'f1-score': 0.5808893093661306, 'support': 661.0}
+MCI: {'precision': 0.8094089264173703, 'recall': 0.7761711972238288, 'f1-score': 0.7924416888101564, 'support': 1729.0}
+CN: {'precision': 0.6954694068192433, 'recall': 0.8249307479224377, 'f1-score': 0.7546882919412063, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9425, Acc: 0.6586, F1: 0.6398, Precision: 0.7310, Recall: 0.6586
+ROC AUC: 0.8931
+
+Classification Report per class:
+AD: {'precision': 0.6293859649122807, 'recall': 0.4341906202723147, 'f1-score': 0.5138764547896151, 'support': 661.0}
+MCI: {'precision': 0.9184652278177458, 'recall': 0.44303065355696936, 'f1-score': 0.5977370269215763, 'support': 1729.0}
+CN: {'precision': 0.5886402753872634, 'recall': 0.9473684210526315, 'f1-score': 0.7261146496815286, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4931, Acc: 0.7952, F1: 0.7980, Precision: 0.8402, Recall: 0.7952
+ROC AUC: 0.9517
+
+Classification Report per class:
+AD: {'precision': 0.5405887600356825, 'recall': 0.9167927382753404, 'f1-score': 0.68013468013468, 'support': 661.0}
+MCI: {'precision': 0.8578431372549019, 'recall': 0.9109311740890689, 'f1-score': 0.8835904628330996, 'support': 1729.0}
+CN: {'precision': 0.932956381260097, 'recall': 0.6398891966759003, 'f1-score': 0.7591192901741702, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3954, Acc: 0.8513, F1: 0.8515, Precision: 0.8519, Recall: 0.8513
+ROC AUC: 0.9543
+
+Classification Report per class:
+AD: {'precision': 0.7916041979010495, 'recall': 0.7987897125567323, 'f1-score': 0.7951807228915663, 'support': 661.0}
+MCI: {'precision': 0.8905413444378346, 'recall': 0.8658183921341817, 'f1-score': 0.8780058651026393, 'support': 1729.0}
+CN: {'precision': 0.8370330265295073, 'recall': 0.8565096952908587, 'f1-score': 0.8466593647316538, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4451, Acc: 0.8238, F1: 0.8176, Precision: 0.8438, Recall: 0.8238
+ROC AUC: 0.9598
+
+Classification Report per class:
+AD: {'precision': 0.9312320916905444, 'recall': 0.491679273827534, 'f1-score': 0.6435643564356435, 'support': 661.0}
+MCI: {'precision': 0.9130710659898477, 'recall': 0.832272990167727, 'f1-score': 0.8708018154311649, 'support': 1729.0}
+CN: {'precision': 0.745374449339207, 'recall': 0.9373961218836565, 'f1-score': 0.8304294478527607, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9905, Acc: 0.6710, F1: 0.6363, Precision: 0.7792, Recall: 0.6710
+ROC AUC: 0.9382
+
+Classification Report per class:
+AD: {'precision': 0.7093525179856115, 'recall': 0.745839636913767, 'f1-score': 0.7271386430678466, 'support': 661.0}
+MCI: {'precision': 0.5957004160887656, 'recall': 0.993637941006362, 'f1-score': 0.7448515066117494, 'support': 1729.0}
+CN: {'precision': 0.9805194805194806, 'recall': 0.3346260387811634, 'f1-score': 0.49896736885584464, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 7.5149, Acc: 0.4122, F1: 0.2406, Precision: 0.1699, Recall: 0.4122
+ROC AUC: 0.8636
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.4121573301549464, 'recall': 1.0, 'f1-score': 0.5837272113436867, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 2.7540, Acc: 0.5275, F1: 0.4289, Precision: 0.7488, Recall: 0.5275
+ROC AUC: 0.9296
+
+Classification Report per class:
+AD: {'precision': 0.8129496402877698, 'recall': 0.5128593040847201, 'f1-score': 0.6289424860853433, 'support': 661.0}
+MCI: {'precision': 0.4761773616083724, 'recall': 1.0, 'f1-score': 0.6451492537313432, 'support': 1729.0}
+CN: {'precision': 0.9863945578231292, 'recall': 0.08033240997229917, 'f1-score': 0.14856557377049182, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 10.7653, Acc: 0.4310, F1: 0.2605, Precision: 0.3035, Recall: 0.4310
+ROC AUC: 0.8266
+
+Classification Report per class:
+AD: {'precision': 0.75, 'recall': 0.0045385779122541605, 'f1-score': 0.009022556390977444, 'support': 661.0}
+MCI: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1729.0}
+CN: {'precision': 0.43068480076354093, 'recall': 1.0, 'f1-score': 0.6020680453635757, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4277, Acc: 0.8651, F1: 0.8634, Precision: 0.8834, Recall: 0.8651
+ROC AUC: 0.9771
+
+Classification Report per class:
+AD: {'precision': 0.9816933638443935, 'recall': 0.649016641452345, 'f1-score': 0.7814207650273225, 'support': 661.0}
+MCI: {'precision': 0.9497389033942559, 'recall': 0.8415268941584731, 'f1-score': 0.892364305427783, 'support': 1729.0}
+CN: {'precision': 0.7839173405211141, 'recall': 0.9667590027700831, 'f1-score': 0.8657901265194741, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3582, Acc: 0.9018, F1: 0.9013, Precision: 0.9097, Recall: 0.9018
+ROC AUC: 0.9813
+
+Classification Report per class:
+AD: {'precision': 0.9310344827586207, 'recall': 0.8577912254160364, 'f1-score': 0.8929133858267716, 'support': 661.0}
+MCI: {'precision': 0.8446313706086096, 'recall': 0.9872758820127241, 'f1-score': 0.9103999999999999, 'support': 1729.0}
+CN: {'precision': 0.9642172523961662, 'recall': 0.83601108033241, 'f1-score': 0.8955489614243324, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 6.3138, Acc: 0.2427, F1: 0.1886, Precision: 0.7985, Recall: 0.2427
+ROC AUC: 0.8715
+
+Classification Report per class:
+AD: {'precision': 0.17382143797735053, 'recall': 0.9984871406959153, 'f1-score': 0.29609690444145353, 'support': 661.0}
+MCI: {'precision': 0.9333333333333333, 'recall': 0.008097165991902834, 'f1-score': 0.016055045871559634, 'support': 1729.0}
+CN: {'precision': 0.8981723237597912, 'recall': 0.19058171745152355, 'f1-score': 0.31444241316270566, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9104, Acc: 0.7535, F1: 0.7397, Precision: 0.8150, Recall: 0.7535
+ROC AUC: 0.9568
+
+Classification Report per class:
+AD: {'precision': 0.7793904208998549, 'recall': 0.8124054462934948, 'f1-score': 0.7955555555555556, 'support': 661.0}
+MCI: {'precision': 0.6675759937646142, 'recall': 0.9907460960092539, 'f1-score': 0.7976717112922003, 'support': 1729.0}
+CN: {'precision': 0.9691489361702128, 'recall': 0.5047091412742383, 'f1-score': 0.663752276867031, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 6.8589, Acc: 0.4341, F1: 0.2828, Precision: 0.3233, Recall: 0.4341
+ROC AUC: 0.9324
+
+Classification Report per class:
+AD: {'precision': 0.9484536082474226, 'recall': 0.13918305597579425, 'f1-score': 0.24274406332453824, 'support': 661.0}
+MCI: {'precision': 0.42191312835529526, 'recall': 1.0, 'f1-score': 0.5934443109661919, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 8.4911, Acc: 0.1662, F1: 0.0600, Precision: 0.3701, Recall: 0.1662
+ROC AUC: 0.9001
+
+Classification Report per class:
+AD: {'precision': 0.15920038535645473, 'recall': 1.0, 'f1-score': 0.2746727612715562, 'support': 661.0}
+MCI: {'precision': 0.8372093023255814, 'recall': 0.020821283979178717, 'f1-score': 0.04063205417607224, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2798, Acc: 0.9223, F1: 0.9223, Precision: 0.9225, Recall: 0.9223
+ROC AUC: 0.9799
+
+Classification Report per class:
+AD: {'precision': 0.8885630498533724, 'recall': 0.9167927382753404, 'f1-score': 0.9024571854058079, 'support': 661.0}
+MCI: {'precision': 0.9323006310958118, 'recall': 0.9398496240601504, 'f1-score': 0.9360599078341014, 'support': 1729.0}
+CN: {'precision': 0.9254237288135593, 'recall': 0.9074792243767313, 'f1-score': 0.9163636363636364, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.7625, Acc: 0.7769, F1: 0.7883, Precision: 0.8512, Recall: 0.7769
+ROC AUC: 0.9660
+
+Classification Report per class:
+AD: {'precision': 0.48800599700149927, 'recall': 0.9848714069591528, 'f1-score': 0.6526315789473685, 'support': 661.0}
+MCI: {'precision': 0.9685374149659864, 'recall': 0.6587622903412377, 'f1-score': 0.7841652323580035, 'support': 1729.0}
+CN: {'precision': 0.8718100890207715, 'recall': 0.8138504155124654, 'f1-score': 0.8418338108882522, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 4.0398, Acc: 0.4579, F1: 0.3317, Precision: 0.5915, Recall: 0.4579
+ROC AUC: 0.9293
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.43264897346019027, 'recall': 0.9994216310005783, 'f1-score': 0.6038790843962957, 'support': 1729.0}
+CN: {'precision': 0.9601990049751243, 'recall': 0.10692520775623268, 'f1-score': 0.19242273180458624, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2805, Acc: 0.9237, F1: 0.9235, Precision: 0.9245, Recall: 0.9237
+ROC AUC: 0.9820
+
+Classification Report per class:
+AD: {'precision': 0.917557251908397, 'recall': 0.9092284417549168, 'f1-score': 0.9133738601823708, 'support': 661.0}
+MCI: {'precision': 0.9086932750136687, 'recall': 0.9612492770387507, 'f1-score': 0.9342327150084317, 'support': 1729.0}
+CN: {'precision': 0.9421390999415546, 'recall': 0.8930747922437673, 'f1-score': 0.9169510807736063, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 2.4471, Acc: 0.5456, F1: 0.4529, Precision: 0.7686, Recall: 0.5456
+ROC AUC: 0.9667
+
+Classification Report per class:
+AD: {'precision': 0.9855907780979827, 'recall': 0.5173978819969742, 'f1-score': 0.6785714285714286, 'support': 661.0}
+MCI: {'precision': 0.98, 'recall': 0.08502024291497975, 'f1-score': 0.15646620542841935, 'support': 1729.0}
+CN: {'precision': 0.48674959437533805, 'recall': 0.997229916897507, 'f1-score': 0.6541886243866981, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8589, Acc: 0.7397, F1: 0.7306, Precision: 0.7953, Recall: 0.7397
+ROC AUC: 0.9234
+
+Classification Report per class:
+AD: {'precision': 0.8693379790940766, 'recall': 0.7549167927382754, 'f1-score': 0.8080971659919028, 'support': 661.0}
+MCI: {'precision': 0.9244306418219461, 'recall': 0.5164835164835165, 'f1-score': 0.662708719851577, 'support': 1729.0}
+CN: {'precision': 0.6444444444444445, 'recall': 0.9479224376731302, 'f1-score': 0.7672645739910315, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3824, Acc: 0.9094, F1: 0.9089, Precision: 0.9157, Recall: 0.9094
+ROC AUC: 0.9827
+
+Classification Report per class:
+AD: {'precision': 0.9107413010590015, 'recall': 0.9107413010590015, 'f1-score': 0.9107413010590015, 'support': 661.0}
+MCI: {'precision': 0.8610547667342799, 'recall': 0.9820705610179294, 'f1-score': 0.917589840583626, 'support': 1729.0}
+CN: {'precision': 0.9699103713188221, 'recall': 0.8393351800554016, 'f1-score': 0.8999108999108999, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5165, Acc: 0.8522, F1: 0.8515, Precision: 0.8747, Recall: 0.8522
+ROC AUC: 0.9781
+
+Classification Report per class:
+AD: {'precision': 0.9159519725557461, 'recall': 0.8078668683812406, 'f1-score': 0.8585209003215433, 'support': 661.0}
+MCI: {'precision': 0.9712990936555891, 'recall': 0.7437825332562175, 'f1-score': 0.8424500491320013, 'support': 1729.0}
+CN: {'precision': 0.7670454545454546, 'recall': 0.9722991689750693, 'f1-score': 0.8575616906914244, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2752, Acc: 0.9325, F1: 0.9324, Precision: 0.9327, Recall: 0.9325
+ROC AUC: 0.9829
+
+Classification Report per class:
+AD: {'precision': 0.9328125, 'recall': 0.903177004538578, 'f1-score': 0.9177555726364335, 'support': 661.0}
+MCI: {'precision': 0.9268156424581006, 'recall': 0.9595141700404858, 'f1-score': 0.9428815004262574, 'support': 1729.0}
+CN: {'precision': 0.9382436260623229, 'recall': 0.9174515235457064, 'f1-score': 0.9277310924369747, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2450, Acc: 0.9356, F1: 0.9357, Precision: 0.9357, Recall: 0.9356
+ROC AUC: 0.9849
+
+Classification Report per class:
+AD: {'precision': 0.9294478527607362, 'recall': 0.9167927382753404, 'f1-score': 0.9230769230769231, 'support': 661.0}
+MCI: {'precision': 0.9486880466472303, 'recall': 0.9410063620589937, 'f1-score': 0.9448315911730546, 'support': 1729.0}
+CN: {'precision': 0.925601750547046, 'recall': 0.9373961218836565, 'f1-score': 0.9314616019818333, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2897, Acc: 0.9261, F1: 0.9259, Precision: 0.9269, Recall: 0.9261
+ROC AUC: 0.9822
+
+Classification Report per class:
+AD: {'precision': 0.967741935483871, 'recall': 0.8623298033282905, 'f1-score': 0.912, 'support': 661.0}
+MCI: {'precision': 0.9262802476083286, 'recall': 0.9519953730480046, 'f1-score': 0.9389617798060467, 'support': 1729.0}
+CN: {'precision': 0.9125205030071077, 'recall': 0.9246537396121883, 'f1-score': 0.918547055586131, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3927, Acc: 0.9080, F1: 0.9073, Precision: 0.9156, Recall: 0.9080
+ROC AUC: 0.9830
+
+Classification Report per class:
+AD: {'precision': 0.9092284417549168, 'recall': 0.9092284417549168, 'f1-score': 0.9092284417549168, 'support': 661.0}
+MCI: {'precision': 0.8563563563563563, 'recall': 0.9895893580104106, 'f1-score': 0.9181647437617385, 'support': 1729.0}
+CN: {'precision': 0.974609375, 'recall': 0.8293628808864266, 'f1-score': 0.8961388805746783, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2786, Acc: 0.9273, F1: 0.9269, Precision: 0.9284, Recall: 0.9273
+ROC AUC: 0.9840
+
+Classification Report per class:
+AD: {'precision': 0.9735915492957746, 'recall': 0.8366111951588502, 'f1-score': 0.8999186330349878, 'support': 661.0}
+MCI: {'precision': 0.924958310172318, 'recall': 0.9624060150375939, 'f1-score': 0.9433106575963719, 'support': 1729.0}
+CN: {'precision': 0.9152078774617067, 'recall': 0.9268698060941828, 'f1-score': 0.9210019267822737, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 11.0679, Acc: 0.5199, F1: 0.3785, Precision: 0.7377, Recall: 0.5199
+ROC AUC: 0.8870
+
+Classification Report per class:
+AD: {'precision': 0.6656934306569343, 'recall': 0.6898638426626323, 'f1-score': 0.6775631500742942, 'support': 661.0}
+MCI: {'precision': 0.49130806497577656, 'recall': 0.9971081550028918, 'f1-score': 0.6582665139366171, 'support': 1729.0}
+CN: {'precision': 1.0, 'recall': 0.000554016620498615, 'f1-score': 0.0011074197120708748, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 9.4004, Acc: 0.4124, F1: 0.2411, Precision: 0.3275, Recall: 0.4124
+ROC AUC: 0.8687
+
+Classification Report per class:
+AD: {'precision': 1.0, 'recall': 0.0015128593040847202, 'f1-score': 0.0030211480362537764, 'support': 661.0}
+MCI: {'precision': 0.4122556032427277, 'recall': 1.0, 'f1-score': 0.5838257639709606, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.6803, Acc: 0.8472, F1: 0.8430, Precision: 0.8744, Recall: 0.8472
+ROC AUC: 0.9794
+
+Classification Report per class:
+AD: {'precision': 0.8484005563282336, 'recall': 0.9228441754916793, 'f1-score': 0.8840579710144928, 'support': 661.0}
+MCI: {'precision': 0.7699910152740341, 'recall': 0.9913244650086755, 'f1-score': 0.8667509481668774, 'support': 1729.0}
+CN: {'precision': 0.984, 'recall': 0.6814404432132964, 'f1-score': 0.8052373158756138, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2845, Acc: 0.9316, F1: 0.9314, Precision: 0.9321, Recall: 0.9316
+ROC AUC: 0.9837
+
+Classification Report per class:
+AD: {'precision': 0.9577235772357724, 'recall': 0.8910741301059002, 'f1-score': 0.9231974921630094, 'support': 661.0}
+MCI: {'precision': 0.9192924267551134, 'recall': 0.9618276460381724, 'f1-score': 0.9400791407574902, 'support': 1729.0}
+CN: {'precision': 0.935064935064935, 'recall': 0.9174515235457064, 'f1-score': 0.9261744966442952, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2761, Acc: 0.9294, F1: 0.9292, Precision: 0.9306, Recall: 0.9294
+ROC AUC: 0.9852
+
+Classification Report per class:
+AD: {'precision': 0.9672977624784854, 'recall': 0.8502269288956127, 'f1-score': 0.9049919484702094, 'support': 661.0}
+MCI: {'precision': 0.9430051813471503, 'recall': 0.9473684210526315, 'f1-score': 0.9451817657241777, 'support': 1729.0}
+CN: {'precision': 0.905167820990943, 'recall': 0.9412742382271468, 'f1-score': 0.9228680065181967, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4852, Acc: 0.8996, F1: 0.8964, Precision: 0.9061, Recall: 0.8996
+ROC AUC: 0.9786
+
+Classification Report per class:
+AD: {'precision': 0.9888143176733781, 'recall': 0.6686838124054463, 'f1-score': 0.7978339350180506, 'support': 661.0}
+MCI: {'precision': 0.8676171079429735, 'recall': 0.9855407750144592, 'f1-score': 0.9228269699431356, 'support': 1729.0}
+CN: {'precision': 0.9125560538116592, 'recall': 0.9019390581717451, 'f1-score': 0.9072164948453608, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3883, Acc: 0.9130, F1: 0.9110, Precision: 0.9164, Recall: 0.9130
+ROC AUC: 0.9820
+
+Classification Report per class:
+AD: {'precision': 0.9856262833675564, 'recall': 0.7261724659606656, 'f1-score': 0.8362369337979094, 'support': 661.0}
+MCI: {'precision': 0.906047516198704, 'recall': 0.9705031810294968, 'f1-score': 0.9371683887182352, 'support': 1729.0}
+CN: {'precision': 0.9008620689655172, 'recall': 0.9263157894736842, 'f1-score': 0.9134116361649823, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2450, Acc: 0.9356, F1: 0.9357, Precision: 0.9357, Recall: 0.9356
+ROC AUC: 0.9849
+
+Classification Report per class:
+AD: {'precision': 0.9294478527607362, 'recall': 0.9167927382753404, 'f1-score': 0.9230769230769231, 'support': 661.0}
+MCI: {'precision': 0.9486880466472303, 'recall': 0.9410063620589937, 'f1-score': 0.9448315911730546, 'support': 1729.0}
+CN: {'precision': 0.925601750547046, 'recall': 0.9373961218836565, 'f1-score': 0.9314616019818333, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8881, Acc: 0.5790, F1: 0.5286, Precision: 0.4871, Recall: 0.5790
+ROC AUC: 0.7334
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.5903063557384545, 'recall': 0.7466743782533256, 'f1-score': 0.6593462717058223, 'support': 1729.0}
+CN: {'precision': 0.5667330677290837, 'recall': 0.6304709141274238, 'f1-score': 0.5969053238919485, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8988, Acc: 0.5807, F1: 0.5772, Precision: 0.6097, Recall: 0.5807
+ROC AUC: 0.7747
+
+Classification Report per class:
+AD: {'precision': 0.4754601226993865, 'recall': 0.4689863842662632, 'f1-score': 0.4722010662604722, 'support': 661.0}
+MCI: {'precision': 0.7353206865401988, 'recall': 0.4707923655292076, 'f1-score': 0.5740479548660085, 'support': 1729.0}
+CN: {'precision': 0.5385878489326765, 'recall': 0.7268698060941828, 'f1-score': 0.6187219995284131, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8250, Acc: 0.6224, F1: 0.5924, Precision: 0.6679, Recall: 0.6224
+ROC AUC: 0.7976
+
+Classification Report per class:
+AD: {'precision': 0.7549019607843137, 'recall': 0.11649016641452345, 'f1-score': 0.2018348623853211, 'support': 661.0}
+MCI: {'precision': 0.7592997811816192, 'recall': 0.6020821283979179, 'f1-score': 0.6716129032258064, 'support': 1729.0}
+CN: {'precision': 0.5484937545922116, 'recall': 0.8271468144044322, 'f1-score': 0.6595979677490612, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.7300, Acc: 0.6739, F1: 0.6552, Precision: 0.6893, Recall: 0.6739
+ROC AUC: 0.8552
+
+Classification Report per class:
+AD: {'precision': 0.6459459459459459, 'recall': 0.3615733736762481, 'f1-score': 0.463627546071775, 'support': 661.0}
+MCI: {'precision': 0.6373626373626373, 'recall': 0.9392712550607287, 'f1-score': 0.7594108019639935, 'support': 1729.0}
+CN: {'precision': 0.754894283476899, 'recall': 0.5340720221606648, 'f1-score': 0.6255678131083712, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9028, Acc: 0.6114, F1: 0.5810, Precision: 0.7180, Recall: 0.6114
+ROC AUC: 0.8520
+
+Classification Report per class:
+AD: {'precision': 0.7241379310344828, 'recall': 0.2859304084720121, 'f1-score': 0.4099783080260304, 'support': 661.0}
+MCI: {'precision': 0.9068493150684932, 'recall': 0.38288027761711974, 'f1-score': 0.538430256201708, 'support': 1729.0}
+CN: {'precision': 0.5349563046192259, 'recall': 0.949584487534626, 'f1-score': 0.6843681373527651, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.6467, Acc: 0.7428, F1: 0.7171, Precision: 0.7598, Recall: 0.7428
+ROC AUC: 0.9022
+
+Classification Report per class:
+AD: {'precision': 0.873015873015873, 'recall': 0.24962178517397882, 'f1-score': 0.38823529411764707, 'support': 661.0}
+MCI: {'precision': 0.7263986013986014, 'recall': 0.9612492770387507, 'f1-score': 0.8274831964152352, 'support': 1729.0}
+CN: {'precision': 0.7502910360884749, 'recall': 0.7141274238227147, 'f1-score': 0.731762702242407, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5907, Acc: 0.7754, F1: 0.7570, Precision: 0.7903, Recall: 0.7754
+ROC AUC: 0.9319
+
+Classification Report per class:
+AD: {'precision': 0.9020408163265307, 'recall': 0.33434190620272314, 'f1-score': 0.48785871964679905, 'support': 661.0}
+MCI: {'precision': 0.7563405797101449, 'recall': 0.9658762290341237, 'f1-score': 0.8483616967233933, 'support': 1729.0}
+CN: {'precision': 0.7818599311136625, 'recall': 0.7545706371191135, 'f1-score': 0.7679729348745418, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5084, Acc: 0.8281, F1: 0.8135, Precision: 0.8412, Recall: 0.8281
+ROC AUC: 0.9506
+
+Classification Report per class:
+AD: {'precision': 0.9630996309963099, 'recall': 0.394856278366112, 'f1-score': 0.5600858369098712, 'support': 661.0}
+MCI: {'precision': 0.827123695976155, 'recall': 0.9629843840370156, 'f1-score': 0.8898984500267236, 'support': 1729.0}
+CN: {'precision': 0.8100470957613815, 'recall': 0.8576177285318559, 'f1-score': 0.8331539289558665, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5653, Acc: 0.7867, F1: 0.7907, Precision: 0.8193, Recall: 0.7867
+ROC AUC: 0.9465
+
+Classification Report per class:
+AD: {'precision': 0.5888223552894212, 'recall': 0.8925869894099848, 'f1-score': 0.7095610342754058, 'support': 661.0}
+MCI: {'precision': 0.9450889404485692, 'recall': 0.706766917293233, 'f1-score': 0.8087359364659165, 'support': 1729.0}
+CN: {'precision': 0.783157894736842, 'recall': 0.824376731301939, 'f1-score': 0.8032388663967611, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9674, Acc: 0.6329, F1: 0.6540, Precision: 0.7947, Recall: 0.6329
+ROC AUC: 0.9207
+
+Classification Report per class:
+AD: {'precision': 0.3364180729450191, 'recall': 0.9349470499243571, 'f1-score': 0.4947958366693355, 'support': 661.0}
+MCI: {'precision': 0.9422382671480144, 'recall': 0.45286292654713706, 'f1-score': 0.61171875, 'support': 1729.0}
+CN: {'precision': 0.8212180746561886, 'recall': 0.6947368421052632, 'f1-score': 0.7527010804321728, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 1.0506, Acc: 0.7139, F1: 0.6994, Precision: 0.8040, Recall: 0.7139
+ROC AUC: 0.9440
+
+Classification Report per class:
+AD: {'precision': 0.8704061895551257, 'recall': 0.680786686838124, 'f1-score': 0.7640067911714771, 'support': 661.0}
+MCI: {'precision': 0.6081560283687943, 'recall': 0.9919028340080972, 'f1-score': 0.7540118707408222, 'support': 1729.0}
+CN: {'precision': 0.9673659673659674, 'recall': 0.4598337950138504, 'f1-score': 0.6233571160345475, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 1.9773, Acc: 0.5592, F1: 0.4837, Precision: 0.7666, Recall: 0.5592
+ROC AUC: 0.9516
+
+Classification Report per class:
+AD: {'precision': 0.8978102189781022, 'recall': 0.5582450832072617, 'f1-score': 0.6884328358208955, 'support': 661.0}
+MCI: {'precision': 0.48923512747875353, 'recall': 0.9988432620011567, 'f1-score': 0.6567788552956836, 'support': 1729.0}
+CN: {'precision': 0.984251968503937, 'recall': 0.13850415512465375, 'f1-score': 0.24283632831471588, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 2.9738, Acc: 0.3907, F1: 0.3515, Precision: 0.6822, Recall: 0.3907
+ROC AUC: 0.8606
+
+Classification Report per class:
+AD: {'precision': 0.25252525252525254, 'recall': 0.983358547655068, 'f1-score': 0.401854714064915, 'support': 661.0}
+MCI: {'precision': 0.9636363636363636, 'recall': 0.09196067090803933, 'f1-score': 0.1678986272439282, 'support': 1729.0}
+CN: {'precision': 0.570054945054945, 'recall': 0.4598337950138504, 'f1-score': 0.509046304814474, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 3.4399, Acc: 0.4617, F1: 0.3251, Precision: 0.7505, Recall: 0.4617
+ROC AUC: 0.9493
+
+Classification Report per class:
+AD: {'precision': 1.0, 'recall': 0.028744326777609682, 'f1-score': 0.055882352941176466, 'support': 661.0}
+MCI: {'precision': 0.9747899159663865, 'recall': 0.0670908039329092, 'f1-score': 0.12554112554112556, 'support': 1729.0}
+CN: {'precision': 0.444170569386246, 'recall': 0.9983379501385041, 'f1-score': 0.6148072330262709, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2355, Acc: 0.9235, F1: 0.9233, Precision: 0.9234, Recall: 0.9235
+ROC AUC: 0.9830
+
+Classification Report per class:
+AD: {'precision': 0.904610492845787, 'recall': 0.8608169440242057, 'f1-score': 0.8821705426356589, 'support': 661.0}
+MCI: {'precision': 0.9405654933641084, 'recall': 0.9427414690572585, 'f1-score': 0.9416522241478914, 'support': 1729.0}
+CN: {'precision': 0.9138025095471904, 'recall': 0.9279778393351801, 'f1-score': 0.9208356239692139, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4135, Acc: 0.8834, F1: 0.8827, Precision: 0.8949, Recall: 0.8834
+ROC AUC: 0.9746
+
+Classification Report per class:
+AD: {'precision': 0.9359190556492412, 'recall': 0.8396369137670197, 'f1-score': 0.8851674641148326, 'support': 661.0}
+MCI: {'precision': 0.8163069544364508, 'recall': 0.9843840370156159, 'f1-score': 0.8925013109596224, 'support': 1729.0}
+CN: {'precision': 0.9551746868820039, 'recall': 0.8027700831024931, 'f1-score': 0.8723660445514749, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 5.1335, Acc: 0.4684, F1: 0.3338, Precision: 0.7347, Recall: 0.4684
+ROC AUC: 0.9105
+
+Classification Report per class:
+AD: {'precision': 0.9457364341085271, 'recall': 0.18456883509833585, 'f1-score': 0.30886075949367087, 'support': 661.0}
+MCI: {'precision': 0.9534883720930233, 'recall': 0.02371312897628687, 'f1-score': 0.04627539503386005, 'support': 1729.0}
+CN: {'precision': 0.44792443450161573, 'recall': 0.9983379501385041, 'f1-score': 0.6183939601921756, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 3.1393, Acc: 0.7602, F1: 0.6942, Precision: 0.6442, Recall: 0.7602
+ROC AUC: 0.9343
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.730423620025674, 'recall': 0.9872758820127241, 'f1-score': 0.8396458435809149, 'support': 1729.0}
+CN: {'precision': 0.7976318622174381, 'recall': 0.8210526315789474, 'f1-score': 0.8091728091728091, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 16.2726, Acc: 0.4122, F1: 0.2406, Precision: 0.1699, Recall: 0.4122
+ROC AUC: 0.7214
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.4121573301549464, 'recall': 1.0, 'f1-score': 0.5837272113436867, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 6.4130, Acc: 0.5216, F1: 0.4090, Precision: 0.3541, Recall: 0.5216
+ROC AUC: 0.8743
+
+Classification Report per class:
+AD: {'precision': 0.2904624277456647, 'recall': 0.9122541603630863, 'f1-score': 0.44062842528315677, 'support': 661.0}
+MCI: {'precision': 0.7479943369513922, 'recall': 0.9167148640832852, 'f1-score': 0.8238045738045738, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2579, Acc: 0.9192, F1: 0.9193, Precision: 0.9211, Recall: 0.9192
+ROC AUC: 0.9826
+
+Classification Report per class:
+AD: {'precision': 0.9270998415213946, 'recall': 0.8850226928895613, 'f1-score': 0.9055727554179566, 'support': 661.0}
+MCI: {'precision': 0.9571603427172583, 'recall': 0.9045691150954309, 'f1-score': 0.9301219149568838, 'support': 1729.0}
+CN: {'precision': 0.8844559585492228, 'recall': 0.9457063711911358, 'f1-score': 0.9140562248995984, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2587, Acc: 0.9244, F1: 0.9248, Precision: 0.9267, Recall: 0.9244
+ROC AUC: 0.9847
+
+Classification Report per class:
+AD: {'precision': 0.8373655913978495, 'recall': 0.9425113464447806, 'f1-score': 0.8868327402135232, 'support': 661.0}
+MCI: {'precision': 0.9378596087456847, 'recall': 0.9427414690572585, 'f1-score': 0.9402942024805309, 'support': 1729.0}
+CN: {'precision': 0.9486281377699942, 'recall': 0.9002770083102493, 'f1-score': 0.923820352472996, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5354, Acc: 0.8551, F1: 0.8542, Precision: 0.8802, Recall: 0.8551
+ROC AUC: 0.9788
+
+Classification Report per class:
+AD: {'precision': 0.9542124542124543, 'recall': 0.7881996974281392, 'f1-score': 0.8632974316487159, 'support': 661.0}
+MCI: {'precision': 0.7619893428063943, 'recall': 0.9924812030075187, 'f1-score': 0.8620949510173322, 'support': 1729.0}
+CN: {'precision': 0.9663564781675018, 'recall': 0.7479224376731302, 'f1-score': 0.8432229856339788, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2612, Acc: 0.9275, F1: 0.9274, Precision: 0.9294, Recall: 0.9275
+ROC AUC: 0.9846
+
+Classification Report per class:
+AD: {'precision': 0.9636678200692042, 'recall': 0.8426626323751891, 'f1-score': 0.8991121872477805, 'support': 661.0}
+MCI: {'precision': 0.9520142180094787, 'recall': 0.929438982070561, 'f1-score': 0.9405911618378695, 'support': 1729.0}
+CN: {'precision': 0.8952825298081908, 'recall': 0.9567867036011081, 'f1-score': 0.9250133904659883, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2484, Acc: 0.9299, F1: 0.9298, Precision: 0.9311, Recall: 0.9299
+ROC AUC: 0.9866
+
+Classification Report per class:
+AD: {'precision': 0.9580536912751678, 'recall': 0.8638426626323752, 'f1-score': 0.9085123309466985, 'support': 661.0}
+MCI: {'precision': 0.9498820754716981, 'recall': 0.9317524580682476, 'f1-score': 0.9407299270072993, 'support': 1729.0}
+CN: {'precision': 0.9033105622700999, 'recall': 0.9523545706371191, 'f1-score': 0.9271844660194175, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.5026, Acc: 0.8698, F1: 0.8692, Precision: 0.8896, Recall: 0.8698
+ROC AUC: 0.9819
+
+Classification Report per class:
+AD: {'precision': 0.9454545454545454, 'recall': 0.8653555219364599, 'f1-score': 0.9036334913112165, 'support': 661.0}
+MCI: {'precision': 0.9769001490312966, 'recall': 0.7582417582417582, 'f1-score': 0.8537935525887332, 'support': 1729.0}
+CN: {'precision': 0.7855871886120996, 'recall': 0.978393351800554, 'f1-score': 0.8714532445102393, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3638, Acc: 0.9120, F1: 0.9094, Precision: 0.9162, Recall: 0.9120
+ROC AUC: 0.9822
+
+Classification Report per class:
+AD: {'precision': 0.9913606911447084, 'recall': 0.6944024205748865, 'f1-score': 0.8167259786476868, 'support': 661.0}
+MCI: {'precision': 0.9131147540983606, 'recall': 0.9664545980335454, 'f1-score': 0.9390278168024726, 'support': 1729.0}
+CN: {'precision': 0.8916929547844374, 'recall': 0.939612188365651, 'f1-score': 0.9150256271917994, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3274, Acc: 0.9068, F1: 0.9075, Precision: 0.9110, Recall: 0.9068
+ROC AUC: 0.9791
+
+Classification Report per class:
+AD: {'precision': 0.795425667090216, 'recall': 0.9470499243570348, 'f1-score': 0.8646408839779005, 'support': 661.0}
+MCI: {'precision': 0.9292811221507891, 'recall': 0.9196067090803933, 'f1-score': 0.9244186046511628, 'support': 1729.0}
+CN: {'precision': 0.9357690041249264, 'recall': 0.8797783933518005, 'f1-score': 0.9069103369503141, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2251, Acc: 0.9416, F1: 0.9415, Precision: 0.9421, Recall: 0.9416
+ROC AUC: 0.9866
+
+Classification Report per class:
+AD: {'precision': 0.9643435980551054, 'recall': 0.9001512859304085, 'f1-score': 0.9311424100156496, 'support': 661.0}
+MCI: {'precision': 0.93, 'recall': 0.9681897050318103, 'f1-score': 0.9487106829130066, 'support': 1729.0}
+CN: {'precision': 0.9454443194600675, 'recall': 0.9313019390581717, 'f1-score': 0.9383198437063913, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 3.7363, Acc: 0.3113, F1: 0.2867, Precision: 0.8137, Recall: 0.3113
+ROC AUC: 0.9237
+
+Classification Report per class:
+AD: {'precision': 0.18805120910384068, 'recall': 1.0, 'f1-score': 0.31657088122605365, 'support': 661.0}
+MCI: {'precision': 0.954468802698145, 'recall': 0.32735685367264317, 'f1-score': 0.4875107665805341, 'support': 1729.0}
+CN: {'precision': 0.9080459770114943, 'recall': 0.04376731301939058, 'f1-score': 0.08350951374207187, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2538, Acc: 0.9359, F1: 0.9357, Precision: 0.9368, Recall: 0.9359
+ROC AUC: 0.9863
+
+Classification Report per class:
+AD: {'precision': 0.9222560975609756, 'recall': 0.9152798789712556, 'f1-score': 0.9187547456340167, 'support': 661.0}
+MCI: {'precision': 0.9195842450765864, 'recall': 0.9722382880277617, 'f1-score': 0.9451785212257521, 'support': 1729.0}
+CN: {'precision': 0.9585037989479837, 'recall': 0.9085872576177285, 'f1-score': 0.9328782707622298, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2516, Acc: 0.9387, F1: 0.9384, Precision: 0.9397, Recall: 0.9387
+ROC AUC: 0.9868
+
+Classification Report per class:
+AD: {'precision': 0.9695431472081218, 'recall': 0.8668683812405447, 'f1-score': 0.9153354632587859, 'support': 661.0}
+MCI: {'precision': 0.9224890829694323, 'recall': 0.9774436090225563, 'f1-score': 0.9491715810165683, 'support': 1729.0}
+CN: {'precision': 0.9452595936794582, 'recall': 0.9279778393351801, 'f1-score': 0.9365389991613083, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.4097, Acc: 0.9061, F1: 0.9029, Precision: 0.9113, Recall: 0.9061
+ROC AUC: 0.9810
+
+Classification Report per class:
+AD: {'precision': 0.9887133182844243, 'recall': 0.6626323751891074, 'f1-score': 0.7934782608695653, 'support': 661.0}
+MCI: {'precision': 0.9246119733924612, 'recall': 0.9647194910352805, 'f1-score': 0.9442400226436456, 'support': 1729.0}
+CN: {'precision': 0.8701232032854209, 'recall': 0.9390581717451524, 'f1-score': 0.903277378097522, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 7.2469, Acc: 0.4594, F1: 0.3348, Precision: 0.5756, Recall: 0.4594
+ROC AUC: 0.8911
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.4339954739753583, 'recall': 0.9982648930017352, 'f1-score': 0.6049772169645987, 'support': 1729.0}
+CN: {'precision': 0.9220183486238532, 'recall': 0.1113573407202216, 'f1-score': 0.1987147800296589, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 16.7820, Acc: 0.4122, F1: 0.2406, Precision: 0.1699, Recall: 0.4122
+ROC AUC: 0.7758
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.4121573301549464, 'recall': 1.0, 'f1-score': 0.5837272113436867, 'support': 1729.0}
+CN: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2456, Acc: 0.9368, F1: 0.9370, Precision: 0.9381, Recall: 0.9368
+ROC AUC: 0.9876
+
+Classification Report per class:
+AD: {'precision': 0.8690807799442897, 'recall': 0.9440242057488654, 'f1-score': 0.9050036258158085, 'support': 661.0}
+MCI: {'precision': 0.9443181818181818, 'recall': 0.9612492770387507, 'f1-score': 0.9527085124677559, 'support': 1729.0}
+CN: {'precision': 0.9574839836924869, 'recall': 0.910803324099723, 'f1-score': 0.9335604770017034, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2248, Acc: 0.9433, F1: 0.9433, Precision: 0.9434, Recall: 0.9433
+ROC AUC: 0.9874
+
+Classification Report per class:
+AD: {'precision': 0.915929203539823, 'recall': 0.9394856278366112, 'f1-score': 0.9275578790141897, 'support': 661.0}
+MCI: {'precision': 0.9509803921568627, 'recall': 0.9537304800462695, 'f1-score': 0.9523534507652325, 'support': 1729.0}
+CN: {'precision': 0.9461581604038138, 'recall': 0.9346260387811635, 'f1-score': 0.940356744704571, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2172, Acc: 0.9499, F1: 0.9498, Precision: 0.9502, Recall: 0.9499
+ROC AUC: 0.9896
+
+Classification Report per class:
+AD: {'precision': 0.9418070444104135, 'recall': 0.9304084720121029, 'f1-score': 0.9360730593607306, 'support': 661.0}
+MCI: {'precision': 0.9424902289223898, 'recall': 0.9762868710237131, 'f1-score': 0.9590909090909091, 'support': 1729.0}
+CN: {'precision': 0.9605939463163906, 'recall': 0.9318559556786704, 'f1-score': 0.9460067491563555, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2133, Acc: 0.9478, F1: 0.9477, Precision: 0.9478, Recall: 0.9478
+ROC AUC: 0.9898
+
+Classification Report per class:
+AD: {'precision': 0.937791601866252, 'recall': 0.9122541603630863, 'f1-score': 0.9248466257668712, 'support': 661.0}
+MCI: {'precision': 0.946236559139785, 'recall': 0.967032967032967, 'f1-score': 0.9565217391304348, 'support': 1729.0}
+CN: {'precision': 0.9529411764705882, 'recall': 0.942382271468144, 'f1-score': 0.9476323119777158, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2855, Acc: 0.9242, F1: 0.9236, Precision: 0.9262, Recall: 0.9242
+ROC AUC: 0.9854
+
+Classification Report per class:
+AD: {'precision': 0.977818853974122, 'recall': 0.800302571860817, 'f1-score': 0.8801996672212979, 'support': 661.0}
+MCI: {'precision': 0.9367881548974943, 'recall': 0.951417004048583, 'f1-score': 0.9440459110473458, 'support': 1729.0}
+CN: {'precision': 0.8972602739726028, 'recall': 0.9434903047091413, 'f1-score': 0.9197947610045909, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2172, Acc: 0.9499, F1: 0.9498, Precision: 0.9502, Recall: 0.9499
+ROC AUC: 0.9896
+
+Classification Report per class:
+AD: {'precision': 0.9418070444104135, 'recall': 0.9304084720121029, 'f1-score': 0.9360730593607306, 'support': 661.0}
+MCI: {'precision': 0.9424902289223898, 'recall': 0.9762868710237131, 'f1-score': 0.9590909090909091, 'support': 1729.0}
+CN: {'precision': 0.9605939463163906, 'recall': 0.9318559556786704, 'f1-score': 0.9460067491563555, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.9141, Acc: 0.5747, F1: 0.5540, Precision: 0.5586, Recall: 0.5747
+ROC AUC: 0.7317
+
+Classification Report per class:
+AD: {'precision': 0.42920353982300885, 'recall': 0.14674735249621784, 'f1-score': 0.21871476888387825, 'support': 661.0}
+MCI: {'precision': 0.6004077471967381, 'recall': 0.6813186813186813, 'f1-score': 0.6383094012462748, 'support': 1729.0}
+CN: {'precision': 0.5660189337319382, 'recall': 0.6293628808864266, 'f1-score': 0.5960125918153201, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8918, Acc: 0.5962, F1: 0.5844, Precision: 0.6096, Recall: 0.5962
+ROC AUC: 0.7641
+
+Classification Report per class:
+AD: {'precision': 0.5128939828080229, 'recall': 0.2708018154311649, 'f1-score': 0.35445544554455444, 'support': 661.0}
+MCI: {'precision': 0.7109256449165402, 'recall': 0.5419317524580682, 'f1-score': 0.6150311782080735, 'support': 1729.0}
+CN: {'precision': 0.5478639240506329, 'recall': 0.7673130193905817, 'f1-score': 0.6392799446111239, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8035, Acc: 0.6284, F1: 0.6059, Precision: 0.6544, Recall: 0.6284
+ROC AUC: 0.7996
+
+Classification Report per class:
+AD: {'precision': 0.6894409937888198, 'recall': 0.16792738275340394, 'f1-score': 0.27007299270072993, 'support': 661.0}
+MCI: {'precision': 0.7381275440976933, 'recall': 0.6292654713707345, 'f1-score': 0.6793630970964721, 'support': 1729.0}
+CN: {'precision': 0.561328125, 'recall': 0.7961218836565097, 'f1-score': 0.6584192439862543, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.7192, Acc: 0.6741, F1: 0.6758, Precision: 0.6855, Recall: 0.6741
+ROC AUC: 0.8414
+
+Classification Report per class:
+AD: {'precision': 0.553030303030303, 'recall': 0.5521936459909228, 'f1-score': 0.5526116578349736, 'support': 661.0}
+MCI: {'precision': 0.7952810548230396, 'recall': 0.6628108733371891, 'f1-score': 0.7230283911671924, 'support': 1729.0}
+CN: {'precision': 0.6289398280802292, 'recall': 0.7296398891966759, 'f1-score': 0.6755578353423954, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.8058, Acc: 0.6312, F1: 0.6081, Precision: 0.7179, Recall: 0.6312
+ROC AUC: 0.8643
+
+Classification Report per class:
+AD: {'precision': 0.6724137931034483, 'recall': 0.2950075642965204, 'f1-score': 0.41009463722397477, 'support': 661.0}
+MCI: {'precision': 0.9094159713945172, 'recall': 0.44129554655870445, 'f1-score': 0.5942367601246106, 'support': 1729.0}
+CN: {'precision': 0.5512067840834964, 'recall': 0.9362880886426593, 'f1-score': 0.6939026893861631, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.7513, Acc: 0.7237, F1: 0.7084, Precision: 0.7606, Recall: 0.7237
+ROC AUC: 0.9122
+
+Classification Report per class:
+AD: {'precision': 0.8753894080996885, 'recall': 0.42511346444780634, 'f1-score': 0.5723014256619144, 'support': 661.0}
+MCI: {'precision': 0.6584043377226956, 'recall': 0.9832272990167727, 'f1-score': 0.7886801206216655, 'support': 1729.0}
+CN: {'precision': 0.81656346749226, 'recall': 0.5844875346260388, 'f1-score': 0.681304488214401, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 2.8357, Acc: 0.4644, F1: 0.3254, Precision: 0.6549, Recall: 0.4644
+ROC AUC: 0.8383
+
+Classification Report per class:
+AD: {'precision': 0.6309523809523809, 'recall': 0.2405446293494705, 'f1-score': 0.348302300109529, 'support': 661.0}
+MCI: {'precision': 0.875, 'recall': 0.004048582995951417, 'f1-score': 0.008059873344847437, 'support': 1729.0}
+CN: {'precision': 0.452858958068615, 'recall': 0.9872576177285318, 'f1-score': 0.6209059233449478, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.6033, Acc: 0.7707, F1: 0.7590, Precision: 0.8163, Recall: 0.7707
+ROC AUC: 0.9566
+
+Classification Report per class:
+AD: {'precision': 0.7025974025974026, 'recall': 0.8184568835098336, 'f1-score': 0.7561146051712089, 'support': 661.0}
+MCI: {'precision': 0.7129166666666666, 'recall': 0.9895893580104106, 'f1-score': 0.8287720997820294, 'support': 1729.0}
+CN: {'precision': 0.9570731707317073, 'recall': 0.5434903047091413, 'f1-score': 0.6932862190812721, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3908, Acc: 0.8544, F1: 0.8543, Precision: 0.8594, Recall: 0.8544
+ROC AUC: 0.9586
+
+Classification Report per class:
+AD: {'precision': 0.908256880733945, 'recall': 0.7488653555219364, 'f1-score': 0.8208955223880597, 'support': 661.0}
+MCI: {'precision': 0.8984709480122324, 'recall': 0.849624060150376, 'f1-score': 0.8733650416171225, 'support': 1729.0}
+CN: {'precision': 0.8039702233250621, 'recall': 0.8975069252077562, 'f1-score': 0.8481675392670157, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 9.5722, Acc: 0.4994, F1: 0.3712, Precision: 0.2961, Recall: 0.4994
+ROC AUC: 0.8335
+
+Classification Report per class:
+AD: {'precision': 0.4211344211344211, 'recall': 0.8199697428139183, 'f1-score': 0.5564681724845997, 'support': 661.0}
+MCI: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 1729.0}
+CN: {'precision': 0.5340440165061898, 'recall': 0.8603878116343491, 'f1-score': 0.659028219817526, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 3.7892, Acc: 0.4186, F1: 0.2552, Precision: 0.6843, Recall: 0.4186
+ROC AUC: 0.8695
+
+Classification Report per class:
+AD: {'precision': 0.9473684210526315, 'recall': 0.02723146747352496, 'f1-score': 0.05294117647058823, 'support': 661.0}
+MCI: {'precision': 0.4148450636560173, 'recall': 0.9988432620011567, 'f1-score': 0.5862186014935507, 'support': 1729.0}
+CN: {'precision': 0.8461538461538461, 'recall': 0.006094182825484765, 'f1-score': 0.012101210121012103, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3462, Acc: 0.8846, F1: 0.8836, Precision: 0.8907, Recall: 0.8846
+ROC AUC: 0.9755
+
+Classification Report per class:
+AD: {'precision': 0.8921095008051529, 'recall': 0.8381240544629349, 'f1-score': 0.8642745709828393, 'support': 661.0}
+MCI: {'precision': 0.8399002493765586, 'recall': 0.9739733950260266, 'f1-score': 0.901981788966256, 'support': 1729.0}
+CN: {'precision': 0.9388145315487572, 'recall': 0.8160664819944599, 'f1-score': 0.8731475992886781, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 3.8445, Acc: 0.7476, F1: 0.6875, Precision: 0.6451, Recall: 0.7476
+ROC AUC: 0.8863
+
+Classification Report per class:
+AD: {'precision': 0.0, 'recall': 0.0, 'f1-score': 0.0, 'support': 661.0}
+MCI: {'precision': 0.8755896226415094, 'recall': 0.858877964141122, 'f1-score': 0.8671532846715329, 'support': 1729.0}
+CN: {'precision': 0.6606642657062826, 'recall': 0.9146814404432133, 'f1-score': 0.7671933085501861, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 2.7227, Acc: 0.5309, F1: 0.4238, Precision: 0.7552, Recall: 0.5309
+ROC AUC: 0.9533
+
+Classification Report per class:
+AD: {'precision': 0.9555555555555556, 'recall': 0.5204236006051437, 'f1-score': 0.67384916748286, 'support': 661.0}
+MCI: {'precision': 0.9662921348314607, 'recall': 0.04973973395026027, 'f1-score': 0.09460946094609461, 'support': 1729.0}
+CN: {'precision': 0.4797116924719701, 'recall': 0.9955678670360111, 'f1-score': 0.6474509097459916, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.3862, Acc: 0.8882, F1: 0.8864, Precision: 0.8953, Recall: 0.8882
+ROC AUC: 0.9764
+
+Classification Report per class:
+AD: {'precision': 0.9733606557377049, 'recall': 0.7186081694402421, 'f1-score': 0.8268059181897301, 'support': 661.0}
+MCI: {'precision': 0.8437343984023964, 'recall': 0.9774436090225563, 'f1-score': 0.9056806002143623, 'support': 1729.0}
+CN: {'precision': 0.9160798122065728, 'recall': 0.864819944598338, 'f1-score': 0.8897121687090339, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 0.2706, Acc: 0.9147, F1: 0.9146, Precision: 0.9179, Recall: 0.9147
+ROC AUC: 0.9819
+
+Classification Report per class:
+AD: {'precision': 0.9717314487632509, 'recall': 0.8320726172465961, 'f1-score': 0.8964955175224125, 'support': 661.0}
+MCI: {'precision': 0.9436112777444511, 'recall': 0.9097744360902256, 'f1-score': 0.9263839811542992, 'support': 1729.0}
+CN: {'precision': 0.873598369011213, 'recall': 0.949584487534626, 'f1-score': 0.9100079638970002, 'support': 1805.0}
+*******************************************************************************
+Test Results:
+Loss: 6.3326, Acc: 0.4348, F1: 0.2687, Precision: 0.7557, Recall: 0.4348
+ROC AUC: 0.9254
+
+Classification Report per class:
+AD: {'precision': 1.0, 'recall': 0.0015128593040847202, 'f1-score': 0.0030211480362537764, 'support': 661.0}
+MCI: {'precision': 1.0, 'recall': 0.010410641989589358, 'f1-score': 0.020606754436176305, 'support': 1729.0}
+CN: {'precision': 0.43223180076628354, 'recall': 1.0, 'f1-score': 0.6035779969904699, 'support': 1805.0}

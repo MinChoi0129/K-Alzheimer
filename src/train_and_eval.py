@@ -72,6 +72,8 @@ def train_and_eval(model, train_loader, test_loader, config, device):
                 torch.save(model.state_dict(), "best_models(train)/best_test_f1_model.pth")
                 print("Best test f1 model saved.")
         else:
+            test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
+            print(test_results["test_loss"], test_results["test_f1"])
             os.makedirs("best_models(transfer)", exist_ok=True)
             # torch.save(model.state_dict(), "best_models(transfer)/best_transfer_model.pth")
 
@@ -128,7 +130,7 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
     # confusion matrix 및 classification report
     conf_matrix = confusion_matrix(all_labels, preds)
     class_report = classification_report(all_labels, preds,
-                                           target_names=["AD", "MCI", "CN"],
+                                           target_names=["AD", "CN", "MCI"],
                                            output_dict=True)
     
     # ROC AUC (multiclass; one-hot encoding 사용)
@@ -168,7 +170,7 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
             for i, cls in enumerate(classes):
                 indices = all_labels == cls
                 plt.scatter(embedding[indices, 0], embedding[indices, 1], 
-                            color=colors[i], label=f"Class {cls} ({'AD' if cls==0 else 'MCI' if cls==1 else 'CN'})", s=5)
+                            color=colors[i], label=f"Class {cls} ({'AD' if cls==0 else 'CN' if cls==1 else 'MCI'})", s=5)
 
             plt.legend(title="Class", loc="best", markerscale=3)
             
@@ -192,7 +194,7 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
             os.makedirs(f"{confusion_matric_path}/confusion_plots", exist_ok=True)
             plt.figure(figsize=(6, 5))
             sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues",
-                        xticklabels=["AD", "MCI", "CN"], yticklabels=["AD", "MCI", "CN"])
+                        xticklabels=["AD", "CN", "MCI"], yticklabels=["AD", "CN", "MCI"])
             title = f"Confusion Matrix - epoch {epoch}" if epoch is not None else "Confusion Matrix - final"
             plt.title(title)
             plt.ylabel("Actual")
@@ -211,7 +213,7 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
         if roc_auc is not None:
             print_str += f"ROC AUC: {roc_auc:.4f}\n"
         print_str += "\nClassification Report per class:\n"
-        for cls in ["AD", "MCI", "CN"]:
+        for cls in ["AD", "CN", "MCI"]:
             print_str += f"{cls}: {class_report.get(cls)}\n"
 
         print(print_str)

@@ -12,17 +12,26 @@ def transform_volume(volume):
     num_slices = 32
     total_slices = volume.shape[0]  # 예: 224
 
-    # 1. 중앙 32 슬라이스 추출 (Temporal crop)
-    start = (total_slices - num_slices) // 2
-    end = start + num_slices
-    cropped = volume[start:end, :, :]  # (32, H, W)
+    # # 1. 중앙 32 슬라이스 추출 (Temporal crop)
+    # start = (total_slices - num_slices) // 2
+    # end = start + num_slices
+    # cropped = volume[start:end, :, :]  # (32, H, W)
+
+    stride = 3
+    span = (num_slices - 1) * stride
+    if span >= total_slices:
+        raise ValueError("Impossible")
+    
+    start = (total_slices - span) // 2
+    indices = start + np.arange(num_slices) * stride
+    cropped = volume[indices, :, :]
 
     # 2. float32 변환 + [0, 1] 정규화
     vol_float = cropped.astype(np.float32) / 255.0  # (32, H, W)
 
     # 3. mean, std 정규화 (r3d_18 grayscale 기준)
-    mean = 0.43216
-    std = 0.22803
+    mean = 0.45
+    std = 0.225
     vol_normalized = (vol_float - mean) / std  # (32, H, W)
 
     # 4. (T, H, W) -> (1, T, H, W) -> torch.Tensor 변환

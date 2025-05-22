@@ -14,8 +14,10 @@ class ResNet3DClassifier(nn.Module):
             1, 64, kernel_size=(3, 7, 7), stride=(1, 2, 2), padding=(1, 3, 3), bias=False
         )
 
+        self.model.avgpool = nn.Sequential(nn.AdaptiveAvgPool3d((1,1,1)), nn.Dropout(p=0.5))
+
         # FC 레이어 수정
-        self.model.fc = nn.Linear(512, config.num_classes)
+        self.model.fc = nn.Linear(self.model.fc.in_features, config.num_classes)
 
     def forward(self, x):
         # Stem 부터 Layer4까지 feature 추출

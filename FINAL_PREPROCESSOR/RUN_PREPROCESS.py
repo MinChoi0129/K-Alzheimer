@@ -162,7 +162,7 @@ class DicomOneScanHandler:
             if i == 0:
                 """X, Y, Z 순의 Spacing을 담음(Z, X, Y 아님!!!)"""
                 try:
-                    all_spacing = list(dcm.PixelSpacing) + [dcm.SliceThickness]
+                    all_spacing = [0.4998, 0.5, 0.5]
                 except:
                     """ADNI 에만 적용될 것으로 예상"""
                     print("ADNI 전용 호출 코드")
