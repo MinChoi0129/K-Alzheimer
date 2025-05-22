@@ -93,8 +93,6 @@ def main():
         y_pred = model.predict(X_test)
         report = classification_report(y_test, y_pred, target_names=["치매(0)", "정상(1)", "경증치매(2)"])
         print(f"\n📌 {name} 성능:\n{report}")
-        with open("log_ML.txt", mode="a+") as f:
-            f.write(f"\n📌 {name} 성능:\n{report}")
 
 
 if __name__ == "__main__":

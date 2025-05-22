@@ -1,9 +1,9 @@
+metric_images*
 best_models*
 dataset
 .vscode
 __pycache__
 *.npz
 *.dcm
-metric_images*
 k_dataset
 k_dataset_raw

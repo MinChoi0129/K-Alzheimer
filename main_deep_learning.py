@@ -28,7 +28,7 @@ def main():
             print(f"전이학습 데이터 비율 : {train_fracs[i]}")
             classifier = model.ResNet3DClassifier(config)
             classifier.to(device)
-            checkpoint = config.pretrained_checkpoint
+            checkpoint = config.using_transfer_checkpoint
             classifier.load_state_dict(hardware.load_checkpoint(checkpoint, device))
             train_and_eval.train_and_eval(classifier, train_loader, test_loader, config, device)
 

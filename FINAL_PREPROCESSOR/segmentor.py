@@ -4,13 +4,12 @@ from multiprocessing import Pool, cpu_count
 from tqdm import tqdm
 
 ext = Extractor()
-base_path = r"C:\Working\LAB\2025\K_Alzheimer\codes\dataset_adni"
-seg_base_path = r"C:\Working\LAB\2025\K_Alzheimer\codes\dataset_adni_segmented"
-
+base_path = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_good"
+seg_base_path = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_segmented"
 
 def process_file(paths):
     in_path, out_path = paths
-    vol = np.load(in_path)["volume"].transpose(1, 0, 2)
+    vol = np.load(in_path)["volume"]
     prob = ext.run(vol)
     mask = prob > 0.5
     seg = (vol * mask).astype(np.float32)

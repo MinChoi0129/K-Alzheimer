@@ -6,7 +6,7 @@ from scipy.ndimage import zoom
 import pandas as pd
 from tqdm import tqdm
 
-MODE = "ADNI"
+MODE = "K-Alzheimer"
 
 ALL_DATASET_PATH, CSV_PATH, NPZS_PATH = None, None, None
 
@@ -239,7 +239,7 @@ class Dicom2NumpyPreprocessor:
         visualize = self.visualize
         mode = MODE
 
-        with concurrent.futures.ProcessPoolExecutor(max_workers=12) as executor:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=8) as executor:
             futures = {
                 executor.submit(
                     Dicom2NumpyPreprocessor.process_scan,
