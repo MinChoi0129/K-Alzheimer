@@ -8,8 +8,8 @@ class Config:
         self.debug = False
 
         # 데이터셋 경로 설정
-        # self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_good"  # 사전학습용
-        self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_segmented"  # 사전학습용
+        self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_good"  # 사전학습용
+        # self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_segmented"  # 사전학습용
         self.root_dir_B = "/home/ubuntu/alz/MRI_B"  # 전이학습용
 
         if self.debug:

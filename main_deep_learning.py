@@ -1,7 +1,9 @@
 import torch
 from config import config
 from src import hardware, dataloader, model, train_and_eval
+import os
 
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 torch.backends.cudnn.benchmark = True
 
 

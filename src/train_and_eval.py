@@ -76,18 +76,22 @@ def train_and_eval(model, train_loader, test_loader, config, device):
             print(f"\nEpoch {epoch+1} Train Loss: {avg_train_loss:.4f}")
 
         # ✅ 평가
-        test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
         if config.mode == "A":
-            os.makedirs(config.train_best_folder, exist_ok=True)
-            if test_results["test_loss"] < best_test_loss:
-                best_test_loss = test_results["test_loss"]
-                torch.save(model.state_dict(), config.train_best_loss_checkpoint)
-                print("Best test loss model saved on 'Training'.")
-            if test_results["test_f1"] > best_test_f1:
-                best_test_f1 = test_results["test_f1"]
-                torch.save(model.state_dict(), config.train_best_f1_checkpoint)
-                print("Best test f1 model saved on 'Training'.")
+            if epoch == 1 or epoch >= 20:
+                os.makedirs(config.train_best_folder, exist_ok=True)
+                test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
+                if test_results["test_loss"] < best_test_loss:
+                    best_test_loss = test_results["test_loss"]
+                    torch.save(model.state_dict(), config.train_best_loss_checkpoint)
+                    print("Best test loss model saved on 'Training'.")
+                if test_results["test_f1"] > best_test_f1:
+                    best_test_f1 = test_results["test_f1"]
+                    torch.save(model.state_dict(), config.train_best_f1_checkpoint)
+                    print("Best test f1 model saved on 'Training'.")
+            else:
+                print("초기 단계이므로 Evaluation을 건너뜁니다.")
         else:
+            test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
             os.makedirs(config.transfer_best_folder, exist_ok=True)
             if test_results["test_loss"] < best_test_loss:
                 best_test_loss = test_results["test_loss"]
@@ -134,10 +138,12 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
     print("Prediction Counts :", pred_counts)
 
     overall_acc = accuracy_score(all_labels, preds)
-    overall_f1 = f1_score(all_labels, preds, average="weighted")
+    overall_f1 = f1_score(all_labels, preds, average="weighted", zero_division=0)
     # confusion matrix 및 classification report
     conf_matrix = confusion_matrix(all_labels, preds)
-    class_report = classification_report(all_labels, preds, target_names=["AD", "CN", "MCI"], output_dict=True)
+    class_report = classification_report(
+        all_labels, preds, target_names=["AD", "CN", "MCI"], output_dict=True, zero_division=0
+    )
 
     # ROC AUC (multiclass; one-hot encoding 사용)
     try:
@@ -146,8 +152,8 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
     except Exception as e:
         roc_auc = None
 
-    precision = precision_score(all_labels, preds, average="weighted")
-    recall = recall_score(all_labels, preds, average="weighted")
+    precision = precision_score(all_labels, preds, average="weighted", zero_division=0)
+    recall = recall_score(all_labels, preds, average="weighted", zero_division=0)
 
     # 결과 딕셔너리 구성
     results = {
