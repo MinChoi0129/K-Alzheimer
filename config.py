@@ -4,13 +4,12 @@ import os
 class Config:
     def __init__(self):
         # 학습 모드: 'A'는 처음부터 학습, 'B'는 전이학습(few-shot)
-        self.mode = "A"
+        self.mode = "B"
         self.debug = False
 
         # 데이터셋 경로 설정
-        self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_good"  # 사전학습용
-        # self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_segmented"  # 사전학습용
-        self.root_dir_B = "/home/ubuntu/alz/MRI_B"  # 전이학습용
+        self.root_dir_A = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_adni_segmented"  # 사전학습용
+        self.root_dir_B = "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_korean_processed"  # 전이학습용
 
         if self.debug:
             print("DEBUGGING MODE in Config.py")
@@ -21,10 +20,11 @@ class Config:
 
         # 학습 파라미터 (RTX 3090, 24GB VRAM, 16코어 CPU, 64GB RAM 기준)
         self.num_epochs = 40
-        self.transfer_num_peochs = 10
-        self.batch_size = 16
-        self.num_workers = 4
+        self.transfer_num_peochs = 40
+        self.batch_size = 4
+        self.num_workers = 2
         self.learning_rate = 0.002
+        self.stride = 2
 
         # 체크포인트 경로
         self.train_best_folder = os.path.join("experiments", "best_models(train)")

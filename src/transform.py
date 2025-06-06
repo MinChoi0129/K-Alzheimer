@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+from config import config
 
 
 def transform_volume(volume):
@@ -13,7 +14,7 @@ def transform_volume(volume):
     num_slices = 32
     total_slices = volume.shape[0]  # 예: 224
 
-    stride = 2
+    stride = config.stride
     span = (num_slices - 1) * stride
     if span >= total_slices:
         raise ValueError("Impossible")

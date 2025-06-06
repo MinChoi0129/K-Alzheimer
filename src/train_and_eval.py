@@ -44,13 +44,16 @@ def train_and_eval(model, train_loader, test_loader, config, device):
             num_samples = 0
 
             pbar = tqdm(train_loader, desc=f"Epoch {epoch+1}/{epochs}")
-            for volumes, labels in pbar:
-                optimizer.zero_grad()
+            for volumes, labels, sexs, ages in pbar:
                 volumes = volumes.float().to(device)
                 labels = labels.to(device)
+                sexs = sexs.to(device)
+                ages = ages.float().to(device)
 
-                outputs, _ = model(volumes)
-                loss = criterion(outputs, labels)
+                class_logits, combined_emb = model(volumes, sexs, ages)  # (batch, num_classes)
+                loss = criterion(class_logits, labels)
+
+                optimizer.zero_grad()
                 loss.backward()
                 optimizer.step()
 
@@ -58,7 +61,7 @@ def train_and_eval(model, train_loader, test_loader, config, device):
                 train_loss_epoch += loss.item() * bsz
                 num_samples += bsz
 
-                preds = torch.argmax(outputs, dim=1)
+                preds = torch.argmax(class_logits, dim=1)
                 all_train_preds.append(preds.cpu().numpy())
                 all_train_labels.append(labels.cpu().numpy())
 
@@ -77,27 +80,30 @@ def train_and_eval(model, train_loader, test_loader, config, device):
 
         # ✅ 평가
         if config.mode == "A":
-            if epoch == 1 or epoch >= 20:
+            if epoch == 1 or epoch >= 5:
                 os.makedirs(config.train_best_folder, exist_ok=True)
-                test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
+                test_results, print_str = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
                 if test_results["test_loss"] < best_test_loss:
                     best_test_loss = test_results["test_loss"]
                     torch.save(model.state_dict(), config.train_best_loss_checkpoint)
                     print("Best test loss model saved on 'Training'.")
                 if test_results["test_f1"] > best_test_f1:
+                    print(print_str)
                     best_test_f1 = test_results["test_f1"]
                     torch.save(model.state_dict(), config.train_best_f1_checkpoint)
                     print("Best test f1 model saved on 'Training'.")
             else:
                 print("초기 단계이므로 Evaluation을 건너뜁니다.")
         else:
-            test_results = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
+            test_results, print_str = evaluate(model, test_loader, config, device, criterion, epoch=epoch + 1)
             os.makedirs(config.transfer_best_folder, exist_ok=True)
+            print("test_loss :", test_results["test_loss"])
             if test_results["test_loss"] < best_test_loss:
                 best_test_loss = test_results["test_loss"]
                 torch.save(model.state_dict(), config.transfer_best_loss_checkpoint)
                 print("Best test loss model saved on 'Transfer'.")
             if test_results["test_f1"] > best_test_f1:
+                print(print_str)
                 best_test_f1 = test_results["test_f1"]
                 torch.save(model.state_dict(), config.transfer_best_f1_checkpoint)
                 print("Best test f1 model saved on 'Transfer'.")
@@ -115,17 +121,22 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
 
     with torch.no_grad():
         pbar = tqdm(eval_loader, desc="Evaluating")
-        for volumes, labels in pbar:
+        for volumes, labels, sexs, ages in pbar:
             volumes = volumes.float().to(device)
             labels = labels.to(device)
-            outputs, emb = model(volumes)  # (batch, num_classes)
-            loss = criterion(outputs, labels)
+            sexs = sexs.to(device)
+            ages = ages.float().to(device)
+
+            class_logits, combined_emb = model(volumes, sexs, ages)  # (batch, num_classes)
+
+            loss = criterion(class_logits, labels)
+
             total_loss += loss.item() * volumes.size(0)
             num_samples += volumes.size(0)
-            probs = F.softmax(outputs, dim=1)
+            probs = F.softmax(class_logits, dim=1)
             all_outputs.append(probs.cpu().numpy())
             all_labels.append(labels.cpu().numpy())
-            all_embeddings.append(emb.cpu().numpy())
+            all_embeddings.append(combined_emb.cpu().numpy())
 
     avg_loss = total_loss / num_samples
     all_outputs = np.concatenate(all_outputs, axis=0)  # shape: (N, num_classes)
@@ -251,6 +262,4 @@ def evaluate(model, eval_loader, config, device, criterion, epoch=None):
     for cls in ["AD", "CN", "MCI"]:
         print_str += f"{cls}: {class_report.get(cls)}\n"
 
-    print(print_str)
-
-    return results
+    return results, print_str

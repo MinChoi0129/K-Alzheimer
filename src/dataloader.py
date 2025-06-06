@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import pandas as pd
 import torch
 from torch.utils.data import Dataset, DataLoader
 from src.transform import transform_volume
@@ -14,6 +15,9 @@ class MRIDataset(Dataset):
         self.class_to_idx = {cls: idx for idx, cls in enumerate(self.classes)}
         self.config = config
         self.transform = transform
+        self.csv = pd.read_csv(
+            "/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_korean_raw/MRI_dataset_final.csv", encoding="cp949"
+        )
 
         class_counts = {"AD": 0, "CN": 0, "MCI": 0}
         for label in self.classes:
@@ -22,9 +26,9 @@ class MRIDataset(Dataset):
                 for file in os.listdir(class_dir):
                     if file.endswith(".npz"):
                         full_path = os.path.join(class_dir, file)
-                        self.samples.append((full_path, self.class_to_idx[label]))
+                        unique_id = file[:-7]
+                        self.samples.append((full_path, self.class_to_idx[label], unique_id))
                         class_counts[label] += 1
-
         print(class_counts)
         print("*" * 80)
 
@@ -39,30 +43,39 @@ class MRIDataset(Dataset):
         return volume
 
     def __getitem__(self, index):
-        file_path, label = self.samples[index]
+        file_path, label, unique_id = self.samples[index]
         volume = self.load_volume(file_path)
-        return volume, label
+        target = self.csv[self.csv["MRI convert 익명코드"] == unique_id]
+        sex, age = target["성별"].values[0], int(target["현재나이"].values[0])  # M/F, 40~96
+
+        min_age, max_age = 40, 96
+        age_norm = (age - min_age) / (max_age - min_age)  # 정규화 나이
+        final_sex = 0 if sex == "M" else 1  # 남:0, 여:1
+
+        return volume, label, final_sex, age_norm
 
 
 def get_dataloaders(config):
     # 1) 데이터셋 준비
-    root = config.root_dir_A if config.mode == "A" else config.root_dir_B
-    ds = MRIDataset(root, config, transform=transform_volume)
+    root_A = config.root_dir_A
+    root_B = config.root_dir_B
+    ds_A = MRIDataset(root_A, config, transform=transform_volume)
+    ds_B = MRIDataset(root_B, config, transform=transform_volume)
 
     # ── 디버그 모드 ───────────────────────────────────────────
     if config.debug:
         print("디버깅 용으로 데이터셋을 감소합니다.")
-        total = len(ds)
+        total = len(ds_A)
         subset_size = int(total * 0.3)
-        ds, _ = random_split(ds, [subset_size, total - subset_size])
+        ds_A, _ = random_split(ds_A, [subset_size, total - subset_size])
 
     # 2) A 모드: 그대로
     if config.mode == "A":
-        total_len = len(ds)
+        total_len = len(ds_A)
         train_len = int(0.7 * total_len)
         test_len = total_len - train_len
 
-        train_set, test_set = random_split(ds, [train_len, test_len])
+        train_set, test_set = random_split(ds_A, [train_len, test_len])
 
         train_loader = DataLoader(
             train_set, batch_size=config.batch_size, shuffle=True, num_workers=config.num_workers, pin_memory=True
@@ -74,11 +87,11 @@ def get_dataloaders(config):
         return train_loader, test_loader
 
     else:
-        total_len = len(ds)
-        test_len = int(0.7 * total_len)
+        total_len = len(ds_B)
+        test_len = int(0.3 * total_len)
         pool_len = total_len - test_len
 
-        test_set, pool_set = random_split(ds, [test_len, pool_len])
+        test_set, pool_set = random_split(ds_B, [test_len, pool_len])
 
         # 고정 테스트 로더
         test_loader_fixed = DataLoader(
@@ -86,11 +99,12 @@ def get_dataloaders(config):
             batch_size=config.batch_size,
             shuffle=False,
             num_workers=config.num_workers,
-            pin_memory=True,
+            pin_memory=False,
         )
 
         # 후보 중에서 사용할 학습 비율
         train_fracs = [1.0, 0.75, 0.5, 0.25, 0.2, 0.15, 0.1, 0.05, 0.025, 0.0125, 0.0125 / 2, 0.0]
+        train_fracs = [1.0]
         train_loaders, test_loaders = [], []
 
         pool_indices = torch.randperm(pool_len).tolist()
@@ -109,7 +123,7 @@ def get_dataloaders(config):
                         batch_size=config.batch_size,
                         shuffle=True,
                         num_workers=config.num_workers,
-                        pin_memory=True,
+                        pin_memory=False,
                     )
                 )
 

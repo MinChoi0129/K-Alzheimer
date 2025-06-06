@@ -7,3 +7,4 @@ __pycache__
 *.dcm
 k_dataset
 k_dataset_raw
+*.h5

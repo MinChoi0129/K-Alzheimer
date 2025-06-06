@@ -5,7 +5,7 @@ from sklearn.decomposition import IncrementalPCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression, SGDClassifier
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, roc_auc_score
 from sklearn.model_selection import train_test_split
 from config import config
 from src.dataloader import MRIDataset
@@ -93,6 +93,12 @@ def main():
         y_pred = model.predict(X_test)
         report = classification_report(y_test, y_pred, target_names=["치매(0)", "정상(1)", "경증치매(2)"])
         print(f"\n📌 {name} 성능:\n{report}")
+
+        y_pred_proba = model.predict_proba(X_test)
+        y_pred_proba = np.nan_to_num(y_pred_proba, nan=0.0)
+        auc = roc_auc_score(y_test, y_pred_proba, multi_class="ovr", average="macro")
+        print(f"AUC : {auc:.4f}")
+        print()
 
 
 if __name__ == "__main__":

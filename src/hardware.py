@@ -7,4 +7,5 @@ def get_device():
 
 def load_checkpoint(path, device):
     checkpoint = torch.load(path, map_location=device, weights_only=True)
+    print("체크포인트 이용 >", path)
     return checkpoint

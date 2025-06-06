@@ -21,9 +21,9 @@ if MODE == "ADNI":
     NPZS_PATH = r"/home/k_alz/k_dataset"
 
 elif MODE == "K-Alzheimer":
-    ALL_DATASET_PATH = r"/home/k_alz/k_dataset_raw"
-    CSV_PATH = r"/home/k_alz/k_dataset_raw/k_alz_csv.csv"
-    NPZS_PATH = r"/home/k_alz/k_dataset"
+    ALL_DATASET_PATH = r"/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_korean_raw/원시데이터/NC"
+    CSV_PATH = r"/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_korean_raw/MRI_dataset_final.csv"
+    NPZS_PATH = r"/home/workspace/K-Alzheimer/ALL_DATASETS/dataset_korean_processed"
 else:
     raise ValueError("Invalid mode. Please choose 'ADNI' or 'K-Alzheimer'.")
 
@@ -174,11 +174,11 @@ class DicomOneScanHandler:
                         all_spacing = list(thickness) + [pixel_spacing]  # 자리가 바뀌어 잘못 기재된 데이터
 
             if len(slice_.shape) == 3:
-                volume = np.array(slice_).transpose(1, 2, 0)
+                volume = np.array(slice_).transpose(2, 1, 0)
                 is_full_volume = True
 
         if not is_full_volume:
-            volume = np.stack(volume, axis=0).transpose(1, 2, 0)
+            volume = np.stack(volume, axis=0).transpose(2, 1, 0)
         # volume = np.array(volume, dtype=np.float32).transpose(1, 2, 0)  # float32 변환 & 차원 변경
 
         # min-max 정규화 (오버플로 방지)
@@ -291,10 +291,10 @@ class Dicom2NumpyPreprocessor:
             DicomOneScanHandler.visualize_volume_as_video(None, new_volume_for_deep_learning)
 
     @staticmethod
-    def get_MRI_class_from_scanId(csv, scan_id, mode="ADNI"):
+    def get_MRI_class_from_scanId(csv, scan_id, mode):
         if mode == "K-Alzheimer":
             try:
-                scan_class = csv.loc[csv["MRI convert 익명코드"] == scan_id, "3T_DATA진단명 "].values[0]
+                scan_class = csv.loc[csv["MRI convert 익명코드"] == scan_id[:-3], "3T_DATA진단명 "].values[0].strip()
                 if scan_class in ["NC"]:
                     return "CN"
                 elif scan_class in ["AMCI", "aMCI"]:
@@ -303,8 +303,8 @@ class Dicom2NumpyPreprocessor:
                     return "AD"
                 else:
                     raise Exception("No class found.")
-            except:
-                raise Exception("Code error in 'get_MRI_class_from_scanId'")
+            except Exception as e:
+                raise Exception("Code error in 'get_MRI_class_from_scanId'", e)
         else:
             # import random
             # return random.choice(["CN", "MCI", "AD"])
@@ -330,7 +330,7 @@ class Dicom2NumpyPreprocessor:
 
 
 if __name__ == "__main__":
-    my_csv = pd.read_csv(CSV_PATH)
+    my_csv = pd.read_csv(CSV_PATH, encoding="cp949")
     preprocessor = Dicom2NumpyPreprocessor(voxel_size=(1.0, 1.0, 1.0), visualize=False, target_shape=(224, 224, 224))
 
     # for i, patient_path in enumerate(os.listdir(ALL_DATASET_PATH)):
